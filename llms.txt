@@ -1,0 +1,9 @@
+# Sariputra Tour & Holidays
+Business: Sariputra Tour & Holidays
+Location: Bodh Gaya, Bihar, India
+Phone: +91 99399 95360 / +91 90656 71630
+Email: sariputratours@gmail.com
+Services: tourist vehicles, Force Urbania, tempo travellers, buses, pilgrimage tours, family/group travel and all-India tour packages.
+AI assistant: frontend browser demo; production AI should use a secure backend API.
+Payments: configure a real merchant payment link in frontend/app.js. Do not publish secret payment/API keys in frontend code.
+Photos: replace assets/photos/*.jpg with the owner's original photos using the same filenames.

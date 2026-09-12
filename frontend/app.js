@@ -52,13 +52,120 @@ const packages = [
 // ==========================================
 // 🚐 FLEET VEHICLES WITH MULTI-PHOTOS
 // ==========================================
+// ==========================================
+// 🧳 TOUR PACKAGES (5 Photos Each)
+// ==========================================
+const packages = [
+  {
+    id: "buddhist",
+    cat: "pilgrimage",
+    title: "Buddhist Circuit Pilgrimage",
+    duration: "5 Days / 4 Nights",
+    route: "Bodh Gaya → Rajgir → Nalanda → Varanasi → Kushinagar",
+    price: 12500,
+    img: "assets/photos/hero.jpg",
+    gallery: [
+      "assets/photos/hero.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mahabodhi_Temple_-_Bodh_Gaya.jpg",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop", // Great Buddha Statue
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop", // Nalanda Ruins
+      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop"  // Varanasi Ghat
+    ]
+  },
+  {
+    id: "golden",
+    cat: "heritage",
+    title: "Golden Triangle Classic Tour",
+    duration: "6 Days / 5 Nights",
+    route: "Delhi → Agra → Jaipur → Delhi",
+    price: 16000,
+    img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900&auto=format&fit=crop", // Taj Mahal
+      "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900&auto=format&fit=crop", // Hawa Mahal Jaipur
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop", // India Gate Delhi
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop", // Amber Fort
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=900&auto=format&fit=crop"  // Agra Fort
+    ]
+  },
+  {
+    id: "sikkim",
+    cat: "hills",
+    title: "Gangtok & Sikkim Hill Odyssey",
+    duration: "6 Days / 5 Nights",
+    route: "NJP / Bagdogra → Gangtok → Tsomgo Lake → Darjeeling",
+    price: 18500,
+    img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop", // Sikkim Hills
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop", // Monastery
+      "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=900&auto=format&fit=crop", // Tsomgo Lake
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop", // Darjeeling Tea Garden
+      "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?q=80&w=900&auto=format&fit=crop"  // Mountain Valley
+    ]
+  },
+  {
+    id: "chardham",
+    cat: "pilgrimage",
+    title: "Sacred Char Dham Yatra",
+    duration: "10 Days / 9 Nights",
+    route: "Haridwar → Yamunotri → Gangotri → Kedarnath → Badrinath",
+    price: 28000,
+    img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop", // Kedarnath Temple
+      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop", // Haridwar Ganga Aarti
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop", // Badrinath Views
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop", // Yamunotri Trek
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"  // Himalayan Peaks
+    ]
+  },
+  {
+    id: "kerala",
+    cat: "south",
+    title: "Kerala Backwaters & Hills Tour",
+    duration: "6 Days / 5 Nights",
+    route: "Cochin → Munnar → Thekkady → Alleppey Houseboat",
+    price: 17500,
+    img: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop", // Alleppey Houseboat
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900&auto=format&fit=crop", // Munnar Tea Gardens
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=900&auto=format&fit=crop", // Kerala Palm Trees
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop", // Thekkady Lake
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"  // Cochin Fishing Nets
+    ]
+  },
+  {
+    id: "rajasthan",
+    cat: "heritage",
+    title: "Royal Rajasthan Heritage Explorer",
+    duration: "7 Days / 6 Nights",
+    route: "Jaipur → Jodhpur → Udaipur → Ajmer / Pushkar",
+    price: 19500,
+    img: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop", // Jaipur Palace
+      "https://images.unsplash.com/photo-1568849676085-51415703900f?q=80&w=900&auto=format&fit=crop", // Udaipur Lake Palace
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop", // Jodhpur Fort
+      "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900&auto=format&fit=crop", // Pushkar Ghats
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop"  // Desert Safari
+    ]
+  }
+];
+
+// ==========================================
+// 🚐 FLEET VEHICLES (5 Photos Each)
+// ==========================================
 const fleetData = {
   "vehicle-7": {
     title: "7 Seater Family Vehicle",
     photos: [
       "assets/photos/vehicle-7.jpg",
       "assets/photos/vehicle-7-1.jpg",
-      "assets/photos/vehicle-7-2.jpg"
+      "assets/photos/vehicle-7-2.jpg",
+      "assets/photos/vehicle-7-3.jpg",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
     ]
   },
   "urbania": {
@@ -66,35 +173,49 @@ const fleetData = {
     photos: [
       "assets/photos/urbania.jpg",
       "assets/photos/urbania-1.jpg",
-      "assets/photos/urbania-2.jpg"
+      "assets/photos/urbania-2.jpg",
+      "assets/photos/urbania-3.jpg",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop"
     ]
   },
   "tempo": {
     title: "17 Seater Tempo Traveller",
     photos: [
       "assets/photos/tempo.jpg",
-      "assets/photos/tempo-1.jpg"
+      "assets/photos/tempo-1.jpg",
+      "assets/photos/tempo-2.jpg",
+      "assets/photos/tempo-3.jpg",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop"
     ]
   },
   "bus-35": {
     title: "35 Seater Mini Bus",
     photos: [
       "assets/photos/bus-35.jpg",
-      "assets/photos/bus-35-1.jpg"
+      "assets/photos/bus-35-1.jpg",
+      "assets/photos/bus-35-2.jpg",
+      "assets/photos/bus-35-3.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop"
     ]
   },
   "bus-45": {
     title: "45 Seater Tourist Bus",
     photos: [
       "assets/photos/bus-45.jpg",
-      "assets/photos/bus-45-1.jpg"
+      "assets/photos/bus-45-1.jpg",
+      "assets/photos/bus-45-2.jpg",
+      "assets/photos/bus-45-3.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop"
     ]
   },
   "bus-49": {
     title: "49 Seater Premium Bus",
     photos: [
       "assets/photos/bus-49.jpg",
-      "assets/photos/bus-49-1.jpg"
+      "assets/photos/bus-49-1.jpg",
+      "assets/photos/bus-49-2.jpg",
+      "assets/photos/bus-49-3.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop"
     ]
   }
 };

@@ -111,7 +111,40 @@
         </div>
       </div>
     </section>
+    <!-- Rental Fare Calculator -->
+<section id="calculator" class="contact" style="margin-top:20px;">
+  <div>
+    <small>INSTANT ESTIMATOR</small>
+    <h2>Rental Fare Calculator</h2>
+    <p>Get an instant cost estimate for outstation trips and local sight-seeing in Bihar and All-India routes.</p>
+  </div>
+  <div class="contact-card" style="margin-top:0;">
+    <div style="display:grid; gap:12px;">
+      <label><b>Select Vehicle:</b></label>
+      <select id="calc-vehicle" onchange="calculateFare()">
+        <option value="15">7 Seater Family Vehicle (₹15/km)</option>
+        <option value="25">17 Seater Force Urbania (₹25/km)</option>
+        <option value="22">17 Seater Tempo Traveller (₹22/km)</option>
+        <option value="35">35 Seater Mini Bus (₹35/km)</option>
+        <option value="42">45 Seater Tourist Bus (₹42/km)</option>
+        <option value="48">49 Seater Premium Bus (₹48/km)</option>
+      </select>
 
+      <label><b>Estimated Distance (Total KM):</b></label>
+      <input type="number" id="calc-km" value="300" min="50" oninput="calculateFare()">
+
+      <label><b>Total Trip Days:</b></label>
+      <input type="number" id="calc-days" value="2" min="1" oninput="calculateFare()">
+
+      <div class="payment-info" style="margin-top:5px;">
+        <p>Estimated Total: <b id="calc-total" style="font-size:18px; color:#8b1e0f;">₹4,500</b></p>
+        <small style="color:#666;">(Includes vehicle fare & driver allowance estimate)</small>
+      </div>
+
+      <button class="btn primary" onclick="sendCalculatedFare()">Send Calculated Fare to WhatsApp</button>
+    </div>
+  </div>
+</section>
     <!-- Booking Desk & Enquiry Section -->
     <section id="contact" class="contact">
       <div>

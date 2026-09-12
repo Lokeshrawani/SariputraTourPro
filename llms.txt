@@ -1,9 +1,39 @@
 # Sariputra Tour & Holidays
-Business: Sariputra Tour & Holidays
-Location: Bodh Gaya, Bihar, India
-Phone: +91 99399 95360 / +91 90656 71630
-Email: sariputratours@gmail.com
-Services: tourist vehicles, Force Urbania, tempo travellers, buses, pilgrimage tours, family/group travel and all-India tour packages.
-AI assistant: frontend browser demo; production AI should use a secure backend API.
-Payments: configure a real merchant payment link in frontend/app.js. Do not publish secret payment/API keys in frontend code.
-Photos: replace assets/photos/*.jpg with the owner's original photos using the same filenames.
+
+> Premium travel marketplace and pilgrimage tour provider based in Bodh Gaya, Bihar, offering specialized vehicle rentals and customized all-India travel packages.
+
+## Business Profile
+* **Company Name:** Sariputra Tour & Holidays
+* **Location:** Bodh Gaya, Bihar, India
+* **Primary Contacts:** 
+  * Phone: +91 99399 95360 / +91 90656 71630
+  * Email: sariputratours@gmail.com
+* **Service Region:** Bodh Gaya, Bihar Circuit (Rajgir, Nalanda, Patna, Gaya), and Pan-India Travel
+
+## Offerings & Fleet Portfolio
+* **Tour Packages:** Buddhist Pilgrimage Circuit tours, heritage itineraries, hill station trips, and custom group travel.
+* **Vehicle Fleet:**
+  * 7-Seater SUV/Family Vehicle
+  * 17-Seater Force Urbania (Luxury Travel)
+  * 17-Seater Tempo Traveller
+  * 35-Seater Mini Bus
+  * 45-Seater Tourist Coach
+  * 49-Seater Premium Bus
+
+## Technical Architecture & Developer Guidelines
+
+### 1. AI Assistant System
+* Current frontend features an in-browser demo travel assistant.
+* **Production Directive:** For live deployment, route AI queries to a secure backend endpoint (`/api/chat`) to protect provider credentials.
+
+### 2. Payment Gateway Configuration
+* Configure real checkout URLs within `frontend/app.js` under `PAYMENT_LINK`.
+* **Security Directive:** Never publish private payment secret keys or API credentials in client-side HTML/JS code. Order creation and signature verification must occur on the backend server.
+
+### 3. Media & Assets Management
+* Default images are structured under `assets/photos/`.
+* Replace stock photos with high-resolution original fleet and destination photos while preserving existing filenames (`hero.jpg`, `vehicle-7.jpg`, `urbania.jpg`, `tempo.jpg`, `bus-35.jpg`, `bus-45.jpg`, `bus-49.jpg`).
+
+### 4. Hosting & Deployment
+* Frontend files (`index.html`, `style.css`, `app.js`) are static and optimized for hosting on GitHub Pages.
+* Backend services (Python Flask / Java Spring Boot) must be deployed to dedicated cloud server instances.

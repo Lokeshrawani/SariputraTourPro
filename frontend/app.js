@@ -7,6 +7,9 @@ const UPI_ID = "rawanilokesh1@ybl";
 const UPI_NAME = "Sariputra Tour & Holidays";
 let currentCat = "all";
 
+// Fallback Image URL for Broken Links
+const FALLBACK_IMG = "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop";
+
 // ==========================================
 // 💳 UPI PAYMENT
 // ==========================================
@@ -50,6 +53,70 @@ const packages = [
       "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  {
+    id: "sikkim",
+    cat: "hills",
+    title: "Gangtok & Sikkim Hill Odyssey",
+    duration: "6 Days / 5 Nights",
+    route: "NJP / Bagdogra → Gangtok → Tsomgo Lake → Darjeeling",
+    price: 18500,
+    img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  {
+    id: "chardham",
+    cat: "pilgrimage",
+    title: "Sacred Char Dham Yatra",
+    duration: "10 Days / 9 Nights",
+    route: "Haridwar → Yamunotri → Gangotri → Kedarnath → Badrinath",
+    price: 28000,
+    img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  {
+    id: "kerala",
+    cat: "south",
+    title: "Kerala Backwaters & Hills Tour",
+    duration: "6 Days / 5 Nights",
+    route: "Cochin → Munnar → Thekkady → Alleppey Houseboat",
+    price: 17500,
+    img: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  {
+    id: "rajasthan",
+    cat: "heritage",
+    title: "Royal Rajasthan Heritage Explorer",
+    duration: "7 Days / 6 Nights",
+    route: "Jaipur → Jodhpur → Udaipur → Ajmer / Pushkar",
+    price: 19500,
+    img: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1568849676085-51415703900f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop"
     ]
   }
 ];
@@ -133,7 +200,7 @@ function render(list = packages) {
       return `
         <article class="card">
           <div class="clickable-photo" onclick="openPackageGallery('${p.id}')">
-            <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop'">
+            <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='${FALLBACK_IMG}'">
             <span class="photo-count-badge">📷 ${photoCount} Photos</span>
           </div>
           <div class="card-body">
@@ -175,12 +242,18 @@ function showGalleryModal(title, photoList) {
 
   titleEl.textContent = `${title} (${photoList.length} Photos)`;
   activeImg.src = photoList[0];
+  activeImg.onerror = () => { activeImg.src = FALLBACK_IMG; };
   thumbsContainer.innerHTML = "";
 
   photoList.forEach((url, index) => {
     const imgBtn = document.createElement("img");
     imgBtn.src = url;
+    imgBtn.alt = `Thumbnail ${index + 1}`;
     imgBtn.className = `thumb-img ${index === 0 ? 'active' : ''}`;
+    
+    // Fallback image handling for broken thumbnail URLs
+    imgBtn.onerror = () => { imgBtn.src = FALLBACK_IMG; };
+
     imgBtn.onclick = () => {
       activeImg.src = url;
       document.querySelectorAll(".thumb-img").forEach(el => el.classList.remove("active"));
@@ -304,8 +377,23 @@ function speakInput() {
   recognition.start();
 }
 
+// Global Keyboard and Overlay Close Listeners
 document.addEventListener("DOMContentLoaded", () => {
   const yearElement = document.getElementById("year");
   if (yearElement) yearElement.textContent = new Date().getFullYear();
+
+  // Close gallery on pressing ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeGallery();
+  });
+
+  // Close gallery when clicking backdrop outside modal content
+  const modal = document.getElementById("gallery-modal");
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeGallery();
+    });
+  }
+
   render();
 });

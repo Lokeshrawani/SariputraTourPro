@@ -1,50 +1,242 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Sariputra Tour & Holidays — travel packages, vehicles, enquiries, AI assistant and payments.">
-<title>Sariputra Tour & Holidays | Travel Marketplace</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sariputra Tour & Holidays | Travel Marketplace & Car Rental Bodh Gaya</title>
+
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Sariputra Tour & Holidays offers travel packages, Buddhist pilgrimage tours, and vehicle rentals (7-seater, Tempo Traveller, Urbania, Tourist Buses) in Bodh Gaya, Bihar, and all over India.">
+  <meta name="keywords" content="Bodh Gaya travel, Bihar tourism, Buddhist circuit tour, taxi rental Bodh Gaya, Tempo Traveller on rent, Force Urbania booking, bus booking Bihar, Sariputra Tour">
+  <meta name="author" content="Sariputra Tour & Holidays">
+  <meta name="theme-color" content="#8b1e0f">
+
+  <!-- Open Graph / Facebook / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sariputra Tour & Holidays | Travel Marketplace">
+  <meta property="og:description" content="Book pilgrimage tours, luxury vehicles, and all-India travel packages simply with instant WhatsApp booking and AI assistance.">
+  <meta property="og:image" content="assets/photos/hero.jpg">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="logo">☸ <span>Sariputra</span></div>
-  <div class="search"><input id="search" placeholder="Search destinations, packages, vehicles..." oninput="filterCards()"><button onclick="filterCards()">🔎</button></div>
-  <nav><a href="#packages">Packages</a><a href="#fleet">Vehicles</a><a href="#contact">Enquiry</a><button onclick="openAI()">🤖 AI</button></nav>
-</header>
 
-<div class="notice">🚐 Bodh Gaya • Bihar • All India &nbsp; | &nbsp; 📞 +91 99399 95360 / +91 90656 71630</div>
+  <!-- Navigation Header -->
+  <header class="top">
+    <div class="logo">☸ <span>Sariputra</span></div>
+    
+    <div class="search" role="search">
+      <input id="search" placeholder="Search destinations, packages, vehicles..." oninput="filterCards()" aria-label="Search travel marketplace">
+      <button onclick="filterCards()" aria-label="Search button">🔎</button>
+    </div>
+    
+    <nav>
+      <a href="#packages">Packages</a>
+      <a href="#fleet">Vehicles</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Enquiry</a>
+      <button onclick="openAI()" aria-label="Open AI Assistant">🤖 AI</button>
+    </nav>
+  </header>
 
-<main>
-<section class="hero">
-  <div><span class="tag">TRAVEL • HOTEL • VEHICLE • PILGRIMAGE</span>
-  <h1>Your journey, <b>booked simply.</b></h1>
-  <p>Compare tour packages, choose your vehicle, send an enquiry on WhatsApp, pay your booking amount, and speak with our AI travel assistant.</p>
-  <div class="actions"><a class="btn primary" href="#packages">Explore Packages</a><a class="btn" href="#contact">Get Quote</a></div></div>
-  <div class="hero-photo"><img src="../assets/photos/hero.jpg" onerror="this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=1200&auto=format&fit=crop'" alt="Sariputra travel"></div>
-</section>
+  <!-- Notice Bar -->
+  <div class="notice">
+    🚐 Bodh Gaya • Bihar • All India &nbsp; | &nbsp; 📞 +91 99399 95360 / +91 90656 71630
+  </div>
 
-<section id="packages">
-<div class="section-title"><div><small>POPULAR</small><h2>Tour Packages</h2></div><div class="filters"><button onclick="setCat('all')">All</button><button onclick="setCat('pilgrimage')">Pilgrimage</button><button onclick="setCat('heritage')">Heritage</button><button onclick="setCat('hills')">Hills</button><button onclick="setCat('south')">South India</button></div></div>
-<div id="cards" class="grid"></div>
-</section>
+  <main>
+    <!-- Hero Banner Section -->
+    <section class="hero">
+      <div>
+        <span class="tag">TRAVEL • HOTEL • VEHICLE • PILGRIMAGE</span>
+        <h1>Your journey, <b>booked simply.</b></h1>
+        <p>Compare tour packages, choose your vehicle, send an enquiry on WhatsApp, pay your booking amount, and speak with our AI travel assistant.</p>
+        <div class="actions">
+          <a class="btn primary" href="#packages">Explore Packages</a>
+          <a class="btn" href="#contact">Get Quote</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/photos/hero.jpg" onerror="this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=1200&auto=format&fit=crop'" alt="Sariputra travel banner showing Bodh Gaya destination">
+      </div>
+    </section>
 
-<section id="fleet"><div class="section-title"><div><small>OUR FLEET</small><h2>Choose your vehicle</h2></div></div>
-<div class="vehicle-grid">
-  <article><img src="../assets/photos/vehicle-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop'"><h3>7 Seater Family Vehicle</h3><p>Families & small groups</p></article>
-  <article><img src="../assets/photos/urbania.jpg" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop'"><h3>17 Seater Force Urbania</h3><p>Premium group travel</p></article>
-  <article><img src="../assets/photos/tempo.jpg" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop'"><h3>17 Seater Tempo Traveller</h3><p>Spacious mid-size groups</p></article>
-  <article><img src="../assets/photos/bus-35.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'"><h3>35 Seater Mini Bus</h3><p>Tour & pilgrimage groups</p></article>
-  <article><img src="../assets/photos/bus-45.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'"><h3>45 Seater Tourist Bus</h3><p>Long-distance coach</p></article>
-  <article><img src="../assets/photos/bus-49.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'"><h3>49 Seater Premium Bus</h3><p>Large groups & events</p></article>
-</div></section>
+    <!-- Tour Packages Section -->
+    <section id="packages">
+      <div class="section-title">
+        <div>
+          <small>POPULAR</small>
+          <h2>Tour Packages</h2>
+        </div>
+        <div class="filters">
+          <button onclick="setCat('all')">All</button>
+          <button onclick="setCat('pilgrimage')">Pilgrimage</button>
+          <button onclick="setCat('heritage')">Heritage</button>
+          <button onclick="setCat('hills')">Hills</button>
+          <button onclick="setCat('south')">South India</button>
+        </div>
+      </div>
+      <div id="cards" class="grid"></div>
+    </section>
 
-<section id="contact" class="contact"><div><small>BOOKING DESK</small><h2>Plan your trip</h2><p>Submit the form and we prepare a WhatsApp enquiry. Payment can be made only through your configured payment provider link.</p><div class="contact-card">📞 <b>+91 99399 95360</b><br>📞 <b>+91 90656 71630</b><br>📧 sariputratours@gmail.com<br>📍 Bodh Gaya, Bihar, India</div></div>
-<form onsubmit="submitEnquiry(event)"><input id="name" required placeholder="Full name"><input id="phone" required placeholder="Mobile number"><input id="date" type="date"><select id="vehicle"><option>Any vehicle</option><option>7 Seater Family Vehicle</option><option>17 Seater Force Urbania</option><option>17 Seater Tempo Traveller</option><option>35 Seater Mini Bus</option><option>45 Seater Tourist Bus</option><option>49 Seater Premium Bus</option></select><input id="destination" required placeholder="Destination / route"><input id="people" type="number" min="1" placeholder="Passengers"><input id="days" type="number" min="1" placeholder="Trip days"><textarea id="message" placeholder="Pickup, hotel, sightseeing or special requirements"></textarea><button class="btn primary" type="submit">Send to WhatsApp</button><button class="btn" type="button" onclick="pay()">💳 Pay Booking Amount</button></form></section>
-</main>
+    <!-- Fleet Vehicle Section -->
+    <section id="fleet">
+      <div class="section-title">
+        <div>
+          <small>OUR FLEET</small>
+          <h2>Choose your vehicle</h2>
+        </div>
+      </div>
+      
+      <div class="vehicle-grid">
+        <article class="vehicle-card">
+          <img src="assets/photos/vehicle-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop'" alt="7 Seater Family Vehicle">
+          <h3>7 Seater Family Vehicle</h3>
+          <p>Families & small groups</p>
+          <p class="price">Starts @ ₹15/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
 
-<button class="float-wa" onclick="whatsapp('Hello Sariputra Tour & Holidays, I want to book a tour.')">💬 WhatsApp</button>
-<div id="ai" class="ai"><div class="ai-box"><button class="close" onclick="closeAI()">×</button><h3>🤖 AI Travel Assistant</h3><div id="chat"></div><div class="chat-row"><input id="aiInput" placeholder="Ask about packages..."><button onclick="askAI()">Send</button><button onclick="speakInput()">🎙️</button></div><button class="speak" onclick="speakLast()">🔊 Speak answer</button></div></div>
-<footer>© <span id="year"></span> Sariputra Tour & Holidays • Travel marketplace • <a href="llms.txt">AI information</a></footer>
-<script src="app.js"></script>
-</body></html>
+        <article class="vehicle-card">
+          <img src="assets/photos/urbania.jpg" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop'" alt="17 Seater Force Urbania">
+          <h3>17 Seater Force Urbania</h3>
+          <p>Premium group travel</p>
+          <p class="price">Starts @ ₹25/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
+
+        <article class="vehicle-card">
+          <img src="assets/photos/tempo.jpg" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop'" alt="17 Seater Tempo Traveller">
+          <h3>17 Seater Tempo Traveller</h3>
+          <p>Spacious mid-size groups</p>
+          <p class="price">Starts @ ₹22/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
+
+        <article class="vehicle-card">
+          <img src="assets/photos/bus-35.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'" alt="35 Seater Mini Bus">
+          <h3>35 Seater Mini Bus</h3>
+          <p>Tour & pilgrimage groups</p>
+          <p class="price">Starts @ ₹35/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
+
+        <article class="vehicle-card">
+          <img src="assets/photos/bus-45.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'" alt="45 Seater Tourist Bus">
+          <h3>45 Seater Tourist Bus</h3>
+          <p>Long-distance coach</p>
+          <p class="price">Starts @ ₹42/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
+
+        <article class="vehicle-card">
+          <img src="assets/photos/bus-49.jpg" onerror="this.src='https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop'" alt="49 Seater Premium Bus">
+          <h3>49 Seater Premium Bus</h3>
+          <p>Large groups & events</p>
+          <p class="price">Starts @ ₹48/km</p>
+          <a href="#contact" class="book-btn">Book Now</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials / Reviews Section -->
+    <section id="testimonials" class="review-section">
+      <div class="section-title">
+        <div>
+          <small>TESTIMONIALS</small>
+          <h2>What Our Travelers Say</h2>
+        </div>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <p class="stars">★★★★★</p>
+          <p>"Excellent service! We booked a 17-seater Tempo Traveller for our Bodh Gaya to Rajgir trip. The vehicle was clean and driver was very professional."</p>
+          <h4>- Rahul Verma</h4>
+        </div>
+        <div class="review-card">
+          <p class="stars">★★★★★</p>
+          <p>"Sariputra Tours made our Buddhist Pilgrimage smooth and memorable. Highly recommended for family tours in Bihar."</p>
+          <h4>- Amit Sharma</h4>
+        </div>
+        <div class="review-card">
+          <p class="stars">★★★★★</p>
+          <p>"Great pricing for Force Urbania rental. Punctual service and smooth online payment process."</p>
+          <h4>- Sneha Roy</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Desk & Enquiry Section -->
+    <section id="contact" class="contact">
+      <div>
+        <small>BOOKING DESK</small>
+        <h2>Plan your trip</h2>
+        <p>Submit the form below and we will prepare your instant WhatsApp enquiry quotation.</p>
+        
+        <div class="contact-card">
+          📞 <b>+91 99399 95360</b><br>
+          📞 <b>+91 90656 71630</b><br>
+          📧 sariputratours@gmail.com<br>
+          📍 Bodh Gaya, Bihar, India
+        </div>
+
+        <div class="payment-info">
+          <p>✅ <i>We accept Google Pay, PhonePe, Paytm, and Direct Bank Transfers for advance token bookings.</i></p>
+        </div>
+      </div>
+
+      <form onsubmit="submitEnquiry(event)">
+        <input id="name" required placeholder="Full name" aria-label="Full name">
+        <input id="phone" required placeholder="Mobile number" aria-label="Mobile number">
+        <input id="date" type="date" aria-label="Travel date">
+        
+        <select id="vehicle" aria-label="Select vehicle">
+          <option value="">Any vehicle</option>
+          <option>7 Seater Family Vehicle</option>
+          <option>17 Seater Force Urbania</option>
+          <option>17 Seater Tempo Traveller</option>
+          <option>35 Seater Mini Bus</option>
+          <option>45 Seater Tourist Bus</option>
+          <option>49 Seater Premium Bus</option>
+        </select>
+        
+        <input id="destination" required placeholder="Destination / route" aria-label="Destination">
+        <input id="people" type="number" min="1" placeholder="Passengers" aria-label="Number of passengers">
+        <input id="days" type="number" min="1" placeholder="Trip days" aria-label="Trip duration in days">
+        
+        <textarea id="message" placeholder="Pickup, hotel, sightseeing or special requirements" aria-label="Special requirements"></textarea>
+        
+        <button class="btn primary" type="submit">Send to WhatsApp</button>
+        <button class="btn" type="button" onclick="pay()">💳 Pay Booking Amount</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp Action -->
+  <button class="float-wa" onclick="whatsapp('Hello Sariputra Tour & Holidays, I want to enquire about tour booking.')" aria-label="Contact via WhatsApp">💬 WhatsApp</button>
+
+  <!-- AI Travel Assistant Modal Box -->
+  <div id="ai" class="ai" role="dialog" aria-modal="true" aria-labelledby="ai-title">
+    <div class="ai-box">
+      <button class="close" onclick="closeAI()" aria-label="Close modal">×</button>
+      <h3 id="ai-title">🤖 AI Travel Assistant</h3>
+      <div id="chat" class="chat"></div>
+      
+      <div class="chat-row">
+        <input id="aiInput" placeholder="Ask about packages, vehicles..." aria-label="AI Question Input">
+        <button onclick="askAI()">Send</button>
+        <button onclick="speakInput()" aria-label="Voice input">🎙️</button>
+      </div>
+      
+      <button class="speak" onclick="speakLast()" style="margin-top: 10px; width: 100%;">🔊 Speak answer</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Sariputra Tour & Holidays • Travel Marketplace • <a href="llms.txt">AI Information</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

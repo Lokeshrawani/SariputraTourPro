@@ -1,41 +1,18 @@
 // ==========================================
-// Sariputra Tour & Holidays - app.js
+// Sariputra Tour & Holidays - Complete Engine
 // ==========================================
 
-// Configuration
 const WA = "+919939995360";
 const UPI_ID = "rawanilokesh1@ybl";
 const UPI_NAME = "Sariputra Tour & Holidays";
+const FALLBACK_IMG = "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop";
 
-// State Management
 let currentCat = "all";
+let currentGeneratedPlan = "";
+let matchedTargetId = "";
 
 // ==========================================
-// UPI PAYMENT FLOW
-// ==========================================
-function pay(amount = "") {
-  const params = new URLSearchParams({
-    pa: UPI_ID,
-    pn: UPI_NAME,
-    cu: "INR",
-  });
-
-  if (amount) {
-    params.set("am", amount);
-  }
-
-  const upiUrl = `upi://pay?${params.toString()}`;
-
-  // Attempt to open native UPI app or prompt fallback
-  try {
-    window.location.href = upiUrl;
-  } catch (err) {
-    alert(`Please send payments to UPI ID: ${UPI_ID}`);
-  }
-}
-
-// ==========================================
-// TOUR PACKAGES DATA
+// 🧳 TOUR PACKAGES DATA (5 Photos Each)
 // ==========================================
 const packages = [
   {
@@ -45,7 +22,14 @@ const packages = [
     duration: "5 Days / 4 Nights",
     route: "Bodh Gaya → Rajgir → Nalanda → Varanasi → Kushinagar",
     price: 12500,
-    img: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mahabodhi_Temple_-_Bodh_Gaya.jpg",
+    img: "assets/photos/hero.jpg",
+    gallery: [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mahabodhi_Temple_-_Bodh_Gaya.jpg",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+    ]
   },
   {
     id: "golden",
@@ -55,6 +39,13 @@ const packages = [
     route: "Delhi → Agra → Jaipur → Delhi",
     price: 16000,
     img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=900&auto=format&fit=crop"
+    ]
   },
   {
     id: "sikkim",
@@ -64,6 +55,13 @@ const packages = [
     route: "NJP / Bagdogra → Gangtok → Tsomgo Lake → Darjeeling",
     price: 18500,
     img: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?q=80&w=900&auto=format&fit=crop"
+    ]
   },
   {
     id: "chardham",
@@ -73,6 +71,13 @@ const packages = [
     route: "Haridwar → Yamunotri → Gangotri → Kedarnath → Badrinath",
     price: 28000,
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+    ]
   },
   {
     id: "kerala",
@@ -82,6 +87,13 @@ const packages = [
     route: "Cochin → Munnar → Thekkady → Alleppey Houseboat",
     price: 17500,
     img: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+    ]
   },
   {
     id: "rajasthan",
@@ -91,13 +103,98 @@ const packages = [
     route: "Jaipur → Jodhpur → Udaipur → Ajmer / Pushkar",
     price: 19500,
     img: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
-  },
+    gallery: [
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1568849676085-51415703900f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=900&auto=format&fit=crop"
+    ]
+  }
 ];
 
 // ==========================================
-// RENDER PACKAGES
+// 🚐 FLEET VEHICLES DATA (5 Photos Each)
 // ==========================================
-function render(list = packages) {
+const fleetData = {
+  "vehicle-7": {
+    title: "7 Seater Family Vehicle",
+    desc: "Families & small groups",
+    rate: "Starts @ ₹15/km",
+    photos: [
+      "assets/photos/vehicle-7.jpg",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  "urbania": {
+    title: "17 Seater Force Urbania",
+    desc: "Premium group travel",
+    rate: "Starts @ ₹25/km",
+    photos: [
+      "assets/photos/urbania.jpg",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  "tempo": {
+    title: "17 Seater Tempo Traveller",
+    desc: "Spacious mid-size groups",
+    rate: "Starts @ ₹22/km",
+    photos: [
+      "assets/photos/tempo.jpg",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  "bus-35": {
+    title: "35 Seater Mini Bus",
+    desc: "Tour & pilgrimage groups",
+    rate: "Starts @ ₹35/km",
+    photos: [
+      "assets/photos/bus-35.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  "bus-45": {
+    title: "45 Seater Tourist Bus",
+    desc: "Long-distance coach",
+    rate: "Starts @ ₹42/km",
+    photos: [
+      "assets/photos/bus-45.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop"
+    ]
+  },
+  "bus-49": {
+    title: "49 Seater Premium Bus",
+    desc: "Large groups & events",
+    rate: "Starts @ ₹48/km",
+    photos: [
+      "assets/photos/bus-49.jpg",
+      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+    ]
+  }
+};
+
+// ==========================================
+// 🖼️ DYNAMIC RENDER ENGINES
+// ==========================================
+function renderPackages(list = packages) {
   const cards = document.getElementById("cards");
   if (!cards) return;
 
@@ -107,41 +204,266 @@ function render(list = packages) {
   }
 
   cards.innerHTML = list
-    .map(
-      (p) => `
-        <article class="card">
-          <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop'">
+    .map((p) => `
+      <article class="card">
+        <div class="clickable-photo" onclick="openPackageGallery('${p.id}')">
+          <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='${FALLBACK_IMG}'">
+          <span class="photo-count-badge">📷 ${p.gallery ? p.gallery.length : 1} Photos</span>
+        </div>
+        <div class="card-body">
+          <small>${p.cat.toUpperCase()}</small>
+          <h3>${p.title}</h3>
+          <p>🕒 ${p.duration}</p>
+          <p>📍 ${p.route}</p>
+          <div class="price">
+            ₹${p.price.toLocaleString("en-IN")}
+            <small>/ person</small>
+          </div>
+          <div class="card-actions">
+            <button class="btn" onclick="openPackageGallery('${p.id}')">📷 View Photos</button>
+            <button class="btn primary" onclick="pay(${p.price})">💳 Advance Pay</button>
+          </div>
+        </div>
+      </article>`)
+    .join("");
+}
+
+function renderFleet() {
+  const fleetGrid = document.getElementById("vehicle-grid");
+  if (!fleetGrid) return;
+
+  fleetGrid.innerHTML = Object.keys(fleetData)
+    .map((key) => {
+      const v = fleetData[key];
+      const count = v.photos ? v.photos.length : 1;
+      return `
+        <article class="vehicle-card card">
+          <div class="clickable-photo" onclick="openVehicleGallery('${key}')">
+            <img src="${v.photos[0]}" alt="${v.title}" loading="lazy" onerror="this.src='${FALLBACK_IMG}'">
+            <span class="photo-count-badge">📷 ${count} Photos</span>
+          </div>
           <div class="card-body">
-            <small>${p.cat.toUpperCase()}</small>
-            <h3>${p.title}</h3>
-            <p>🕒 ${p.duration}</p>
-            <p>📍 ${p.route}</p>
-            <div class="price">
-              ₹${p.price.toLocaleString("en-IN")}
-              <small>/ person</small>
-            </div>
+            <h3>${v.title}</h3>
+            <p>${v.desc}</p>
+            <div class="price">${v.rate}</div>
             <div class="card-actions">
-              <button class="btn" onclick="whatsapp('Hello, I am interested in ${p.title} (${p.duration}). Please send final quotation.')">
-                💬 Enquire
-              </button>
-              <button class="btn primary" onclick="pay(${p.price})">
-                💳 Advance Pay
-              </button>
+              <button class="btn" onclick="openVehicleGallery('${key}')">📷 View Gallery</button>
+              <a class="btn primary" href="#contact">Book Now</a>
             </div>
           </div>
-        </article>
-      `
-    )
+        </article>`;
+    })
     .join("");
 }
 
 // ==========================================
-// CATEGORY FILTER & SEARCH
+// 📸 MULTI-PHOTO GALLERY MODAL LOGIC
 // ==========================================
+function openPackageGallery(packageId) {
+  const pkg = packages.find((item) => item.id === packageId);
+  if (pkg && pkg.gallery) showGalleryModal(pkg.title, pkg.gallery);
+}
+
+function openVehicleGallery(vehicleKey) {
+  const vehicle = fleetData[vehicleKey];
+  if (vehicle && vehicle.photos) showGalleryModal(vehicle.title, vehicle.photos);
+}
+
+function showGalleryModal(title, photoList) {
+  const modal = document.getElementById("gallery-modal");
+  const titleEl = document.getElementById("gallery-title");
+  const activeImg = document.getElementById("gallery-active-img");
+  const thumbsContainer = document.getElementById("gallery-thumbs");
+
+  if (!modal || !activeImg || !thumbsContainer) return;
+
+  titleEl.textContent = `${title} (${photoList.length} Photos)`;
+  activeImg.src = photoList[0];
+  activeImg.onerror = () => { activeImg.src = FALLBACK_IMG; };
+  thumbsContainer.innerHTML = "";
+
+  photoList.forEach((url, index) => {
+    const imgBtn = document.createElement("img");
+    imgBtn.src = url;
+    imgBtn.alt = `Thumbnail ${index + 1}`;
+    imgBtn.className = `thumb-img ${index === 0 ? "active" : ""}`;
+    imgBtn.onerror = () => { imgBtn.src = FALLBACK_IMG; };
+
+    imgBtn.onclick = () => {
+      activeImg.src = url;
+      document.querySelectorAll(".thumb-img").forEach((el) => el.classList.remove("active"));
+      imgBtn.classList.add("active");
+    };
+    thumbsContainer.appendChild(imgBtn);
+  });
+
+  modal.classList.add("open");
+}
+
+function closeGallery() {
+  const modal = document.getElementById("gallery-modal");
+  if (modal) modal.classList.remove("open");
+}
+
+// ==========================================
+// ✨ AI CUSTOM ITINERARY GENERATOR
+// ==========================================
+function generateAIItinerary() {
+  const destEl = document.getElementById("ai-gen-dest");
+  const typeEl = document.getElementById("ai-gen-type");
+  const daysEl = document.getElementById("ai-gen-days");
+
+  if (!destEl || !typeEl || !daysEl) return;
+
+  const dest = destEl.value;
+  const type = typeEl.value;
+  const days = parseInt(daysEl.value) || 3;
+
+  const outputBox = document.getElementById("ai-itinerary-output");
+  const planTitle = document.getElementById("ai-plan-title");
+  const planBody = document.getElementById("ai-plan-body");
+
+  if (!outputBox || !planTitle || !planBody) return;
+
+  let itineraryHTML = "";
+
+  if (dest.includes("Bodh Gaya")) {
+    itineraryHTML = `
+      <b>Day 1:</b> Arrival in Gaya / Bodh Gaya → Check-in → Visit Mahabodhi Temple & Bodhi Tree.<br>
+      <b>Day 2:</b> Great Buddha Statue → 80-foot Buddha → International Monasteries (Thai, Japanese, Bhutanese).<br>
+      ${days >= 3 ? '<b>Day 3:</b> Excursion to Dungeshwari Cave Temples & Sujata Stupa.<br>' : ''}
+      ${days >= 4 ? '<b>Day 4:</b> Day trip to Rajgir (Vishwa Shanti Stupa, Vulture Peak) & Nalanda University Ruins.<br>' : ''}
+      <b>Day ${days}:</b> Morning souvenir shopping → Departure transfer to Gaya Station / Patna Airport.
+    `;
+  } else if (dest.includes("Rajgir")) {
+    itineraryHTML = `
+      <b>Day 1:</b> Drive from Bodh Gaya/Patna to Rajgir → Ropeway ride to Vishwa Shanti Stupa.<br>
+      <b>Day 2:</b> Griddhakuta Peak (Vulture's Peak) → Bimbisara Jail → Venu Vana Monastery.<br>
+      ${days >= 3 ? '<b>Day 3:</b> Full day exploration of Ancient Nalanda University Ruins & ASI Museum.<br>' : ''}
+      <b>Day ${days}:</b> Hot Springs (Brahmakund) visit & return journey.
+    `;
+  } else if (dest.includes("Golden Triangle")) {
+    itineraryHTML = `
+      <b>Day 1:</b> Pickup in Delhi → Sightseeing (Red Fort, Qutub Minar, India Gate) → Drive to Agra.<br>
+      <b>Day 2:</b> Sunrise view of Taj Mahal → Agra Fort → Drive to Jaipur via Fatehpur Sikri.<br>
+      ${days >= 3 ? '<b>Day 3:</b> Jaipur Amber Fort → Hawa Mahal → City Palace.<br>' : ''}
+      <b>Day ${days}:</b> Local shopping → Return drive to Delhi Drop.
+    `;
+  } else {
+    itineraryHTML = `
+      <b>Day 1:</b> Arrival NJP/Bagdogra → Scenic drive to Gangtok → Evening Mall Road walk.<br>
+      <b>Day 2:</b> Excursion to Tsomgo Lake & Baba Mandir.<br>
+      ${days >= 3 ? '<b>Day 3:</b> Gangtok local monastery sightseeing → Drive to Darjeeling.<br>' : ''}
+      <b>Day ${days}:</b> Early morning Tiger Hill sunrise view → Departure transfer.
+    `;
+  }
+
+  planTitle.textContent = `🤖 ${days}-Day AI Custom Plan: ${dest}`;
+  planBody.innerHTML = itineraryHTML;
+  outputBox.style.display = "block";
+
+  currentGeneratedPlan = `${days}-Day ${type} itinerary for ${dest}:\n` + itineraryHTML.replace(/<br>/g, "\n").replace(/<b>/g, "").replace(/<\/b>/g, "");
+}
+
+function sendAIPlanToWhatsApp() {
+  if (!currentGeneratedPlan) return;
+  const msg = `*AI Itinerary Booking Request — Sariputra Tour & Holidays*\n----------------------------------------\n${currentGeneratedPlan}\n\nPlease check vehicle options and send a quote for this plan.`;
+  whatsapp(msg);
+}
+
+// ==========================================
+// 🎯 AI MATCHMAKER QUIZ LOGIC
+// ==========================================
+function runAIMatchmaker() {
+  const paxEl = document.getElementById("quiz-pax");
+  const goalEl = document.getElementById("quiz-goal");
+  const resultBox = document.getElementById("ai-match-result");
+  const resultText = document.getElementById("ai-match-text");
+
+  if (!paxEl || !goalEl || !resultBox || !resultText) return;
+
+  const pax = paxEl.value;
+  const goal = goalEl.value;
+
+  if (pax === "small") {
+    resultText.textContent = "7 Seater Family Vehicle (Innova/Ertiga) — Ideal for budget family travel.";
+    matchedTargetId = "fleet";
+  } else if (pax === "medium" && goal === "temple") {
+    resultText.textContent = "17 Seater Force Urbania / Tempo Traveller + Buddhist Circuit Pilgrimage Package.";
+    matchedTargetId = "packages";
+  } else if (pax === "medium") {
+    resultText.textContent = "17 Seater Luxury Force Urbania — Premium suspension for long outstation routes.";
+    matchedTargetId = "fleet";
+  } else {
+    resultText.textContent = "35-Seater to 49-Seater Tourist Buses — Best rates per kilometer for large pilgrimage groups.";
+    matchedTargetId = "fleet";
+  }
+
+  resultBox.style.display = "block";
+}
+
+function jumpToRecommendation() {
+  if (matchedTargetId) {
+    const el = document.getElementById(matchedTargetId);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// ==========================================
+// 🧮 RENTAL FARE CALCULATOR LOGIC
+// ==========================================
+function calculateFare() {
+  const vehicleEl = document.getElementById("calc-vehicle");
+  const kmEl = document.getElementById("calc-km");
+  const daysEl = document.getElementById("calc-days");
+  const totalEl = document.getElementById("calc-total");
+
+  if (!vehicleEl || !kmEl || !daysEl || !totalEl) return;
+
+  const ratePerKm = parseFloat(vehicleEl.value) || 15;
+  const km = parseFloat(kmEl.value) || 0;
+  const days = parseFloat(daysEl.value) || 1;
+
+  const driverAllowancePerDay = 500;
+  const totalKmFare = km * ratePerKm;
+  const totalDriverFare = days * driverAllowancePerDay;
+  const grandTotal = totalKmFare + totalDriverFare;
+
+  totalEl.textContent = `₹${grandTotal.toLocaleString("en-IN")}`;
+}
+
+function sendCalculatedFare() {
+  const vehicleSelect = document.getElementById("calc-vehicle");
+  if (!vehicleSelect) return;
+
+  const vehicleName = vehicleSelect.options[vehicleSelect.selectedIndex].text;
+  const km = document.getElementById("calc-km") ? document.getElementById("calc-km").value : "0";
+  const days = document.getElementById("calc-days") ? document.getElementById("calc-days").value : "1";
+  const total = document.getElementById("calc-total") ? document.getElementById("calc-total").textContent : "₹0";
+
+  const message = `*Fare Estimate Request — Sariputra Tour & Holidays*
+🚘 *Vehicle:* ${vehicleName}
+📍 *Estimated Distance:* ${km} KM
+⏱️ *Duration:* ${days} Days
+💰 *Estimated Fare:* ${total}
+
+Hello, I calculated this estimate on your website. Please confirm availability and send final booking quotation.`;
+
+  whatsapp(message);
+}
+
+// ==========================================
+// 🔍 SEARCH, FILTER & PAYMENTS
+// ==========================================
+function pay(amount = "") {
+  const params = new URLSearchParams({ pa: UPI_ID, pn: UPI_NAME, cu: "INR" });
+  if (amount) params.set("am", amount);
+  window.location.href = `upi://pay?${params.toString()}`;
+}
+
 function setCat(cat) {
   currentCat = cat;
-  
-  // Highlight active filter button
+
   const filterBtns = document.querySelectorAll(".filters button");
   filterBtns.forEach((btn) => {
     if (btn.getAttribute("onclick") === `setCat('${cat}')`) {
@@ -168,51 +490,34 @@ function filterCards() {
     return categoryMatch && searchMatch;
   });
 
-  render(filteredPackages);
+  renderPackages(filteredPackages);
 }
 
-// ==========================================
-// WHATSAPP INTEGRATION
-// ==========================================
 function whatsapp(text) {
-  const cleanNum = WA.replace(/\D/g, "");
-  const whatsappUrl = `https://wa.me/${cleanNum}?text=${encodeURIComponent(text)}`;
-  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  const cleanNumber = WA.replace(/\D/g, "");
+  window.open(`https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
 }
 
 function submitEnquiry(e) {
   e.preventDefault();
-
-  const getValue = (id) => {
-    const el = document.getElementById(id);
-    return el ? el.value.trim() : "";
-  };
-
-  const name = getValue("name");
-  const phone = getValue("phone");
-  const date = getValue("date");
-  const vehicle = getValue("vehicle");
-  const destination = getValue("destination");
-  const people = getValue("people");
-  const days = getValue("days");
-  const message = getValue("message");
+  const getValue = (id) => (document.getElementById(id) ? document.getElementById(id).value.trim() : "");
 
   const text = `*New Booking Enquiry - Sariputra Tour & Holidays*
 ---------------------------------------
-👤 *Name:* ${name}
-📞 *Mobile:* ${phone}
-📅 *Travel Date:* ${date || "Flexible"}
-🚘 *Vehicle Required:* ${vehicle || "Any"}
-📍 *Destination:* ${destination}
-👥 *Passengers:* ${people || "Not specified"}
-⏱️ *Trip Duration:* ${days ? days + " Days" : "Not specified"}
-📝 *Notes:* ${message || "N/A"}`;
+👤 *Name:* ${getValue("name")}
+📞 *Mobile:* ${getValue("phone")}
+📅 *Travel Date:* ${getValue("date") || "Flexible"}
+🚘 *Vehicle Required:* ${getValue("vehicle") || "Any"}
+📍 *Destination:* ${getValue("destination")}
+👥 *Passengers:* ${getValue("people") || "Not specified"}
+⏱️ *Trip Duration:* ${getValue("days") ? getValue("days") + " Days" : "Not specified"}
+📝 *Notes:* ${getValue("message") || "N/A"}`;
 
   whatsapp(text);
 }
 
 // ==========================================
-// AI CHATBOT LOGIC
+// 🤖 AI CHATBOT & VOICE ASSISTANT
 // ==========================================
 function openAI() {
   const ai = document.getElementById("ai");
@@ -222,10 +527,9 @@ function openAI() {
 
   const chat = document.getElementById("chat");
   if (chat && !chat.innerHTML.trim()) {
-    bot("Hello! 👋 Welcome to Sariputra Tour & Holidays. How can I assist you with tour packages or vehicle bookings today?");
+    bot("Hello! 👋 Welcome to Sariputra Tour & Holidays. Ask me about packages, vehicle rentals, or custom itineraries.");
   }
-  
-  // Focus input automatically
+
   const input = document.getElementById("aiInput");
   if (input) input.focus();
 }
@@ -252,95 +556,55 @@ function askAI() {
   if (!q) return;
 
   const chat = document.getElementById("chat");
-  if (chat) {
-    chat.innerHTML += `<div class="msg me">${q}</div>`;
-  }
+  if (chat) chat.innerHTML += `<div class="msg me">${q}</div>`;
 
   input.value = "";
-  let answer = "I can assist with custom tour itineraries, pilgrimage packages, or vehicle rentals across Bihar and India. Please let me know your destination and total passengers!";
+  let answer = "I can help with tour packages, vehicle rentals, and customized trip itineraries. Please specify your route and group size!";
 
   const query = q.toLowerCase();
 
-  // Smart Keyword Matching
-  if (/vehicle|bus|car|cab|gadi|seat|traveller|tempo|urbania|rent/i.test(query)) {
-    answer = "We offer a full fleet: 7-Seater Family SUVs, 17-Seater Force Urbania, 17-Seater Tempo Travellers, and 35/45/49-Seater Tourist Coaches for large groups.";
-  } else if (/price|cost|package|rate|budget|fare|kitna|charge/i.test(query)) {
-    answer = "Our tour packages start from ₹12,500/person, and vehicle rentals start @ ₹15/km. Exact prices depend on vehicle type and travel distance.";
-  } else if (/buddhist|bodh|gaya|nalanda|rajgir|kushinagar|bihar|patna/i.test(query)) {
-    answer = "Our famous 5D/4N Buddhist Circuit covers Bodh Gaya, Rajgir, Nalanda, Varanasi, and Kushinagar starting at ₹12,500 per person.";
-  } else if (/contact|phone|number|location|address|office|email/i.test(query)) {
+  if (/vehicle|bus|car|cab|tempo|urbania|rent/i.test(query)) {
+    answer = "We offer 7-seater SUVs (₹15/km), 17-seater Force Urbanias (₹25/km), 17-seater Tempo Travellers (₹22/km), and 35-49 seater buses (₹35-₹48/km).";
+  } else if (/price|cost|rate|fare/i.test(query)) {
+    answer = "Tour packages start at ₹12,500/person and vehicle rentals start at ₹15/km.";
+  } else if (/buddhist|bodh|gaya|nalanda|rajgir/i.test(query)) {
+    answer = "Our 5D/4N Buddhist Circuit Pilgrimage covers Bodh Gaya, Rajgir, Nalanda, Varanasi, and Kushinagar starting at ₹12,500 per person.";
+  } else if (/contact|phone|number|location|email/i.test(query)) {
     answer = "📍 Office: Bodh Gaya, Bihar | 📞 Call/WhatsApp: +91 99399 95360 / +91 90656 71630 | 📧 Email: sariputratours@gmail.com";
-  } else if (/golden|delhi|agra|jaipur/i.test(query)) {
-    answer = "The Golden Triangle Classic (6D/5N) covers Delhi, Agra, and Jaipur. Starting price: ₹16,000 per person.";
-  } else if (/sikkim|gangtok|darjeeling/i.test(query)) {
-    answer = "The Gangtok & Sikkim Hill Odyssey (6D/5N) covers Gangtok, Tsomgo Lake, and Darjeeling. Starting price: ₹18,500 per person.";
-  } else if (/char dham|kedarnath|badrinath|gangotri|yamunotri/i.test(query)) {
-    answer = "The Sacred Char Dham Yatra (10D/9N) covers Yamunotri, Gangotri, Kedarnath, and Badrinath. Starting price: ₹28,000 per person.";
-  } else if (/kerala|munnar|alleppey|houseboat/i.test(query)) {
-    answer = "The Kerala Backwaters & Hills Tour (6D/5N) covers Cochin, Munnar, Thekkady, and Alleppey Houseboat. Starting price: ₹17,500 per person.";
-  } else if (/rajasthan|jodhpur|udaipur/i.test(query)) {
-    answer = "The Royal Rajasthan Heritage Explorer (7D/6N) covers Jaipur, Jodhpur, Udaipur, and Pushkar. Starting price: ₹19,500 per person.";
   }
 
   bot(answer);
 }
 
-// ==========================================
-// SPEECH INTEGRATION
-// ==========================================
 function speakLast() {
   if (window.lastAnswer && "speechSynthesis" in window) {
     window.speechSynthesis.cancel();
     const speech = new SpeechSynthesisUtterance(window.lastAnswer);
     speech.lang = "en-IN";
-    speech.rate = 1;
     window.speechSynthesis.speak(speech);
   }
 }
 
 function speakInput() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-  if (!SpeechRecognition) {
-    alert("Voice recognition is not supported in this browser. Please try using Google Chrome.");
-    return;
-  }
-
+  if (!SpeechRecognition) return alert("Please use Chrome browser for voice search.");
+  
   const recognition = new SpeechRecognition();
   recognition.lang = "en-IN";
-  recognition.continuous = false;
-  recognition.interimResults = false;
-
-  const input = document.getElementById("aiInput");
-  if (input) input.placeholder = "Listening...";
-
   recognition.onresult = (e) => {
-    const transcript = e.results[0][0].transcript;
-    if (input) {
-      input.value = transcript;
-      input.placeholder = "Ask about packages...";
-      askAI();
-    }
+    const input = document.getElementById("aiInput");
+    if (input) { input.value = e.results[0][0].transcript; askAI(); }
   };
-
-  recognition.onerror = () => {
-    if (input) input.placeholder = "Ask about packages...";
-  };
-
   recognition.start();
 }
 
 // ==========================================
-// INITIALIZATION & EVENT LISTENERS
+// 🚀 INITIALIZATION & EVENT LISTENERS
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-  // Set copyright year
   const yearElement = document.getElementById("year");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  if (yearElement) yearElement.textContent = new Date().getFullYear();
 
-  // Bind Enter Key for AI Chat
   const aiInput = document.getElementById("aiInput");
   if (aiInput) {
     aiInput.addEventListener("keypress", (e) => {
@@ -351,6 +615,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initial Card Render
-  render();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeGallery();
+  });
+
+  const modal = document.getElementById("gallery-modal");
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeGallery();
+    });
+  }
+
+  // Engine Boot
+  renderPackages();
+  renderFleet();
+  if (document.getElementById("calc-vehicle")) calculateFare();
 });

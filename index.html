@@ -1,338 +1,1226 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sariputra Tour & Holidays | Travel Marketplace & Car Rental Bodh Gaya</title>
-  
+
+  <title>
+    Sariputra Tour & Holidays | Travel Marketplace & Car Rental Bodh Gaya
+  </title>
+
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Sariputra Tour & Holidays offers travel packages, Buddhist pilgrimage tours, and vehicle rentals (Tempo Traveller, Force Urbania, Buses) in Bodh Gaya, Bihar, and all over India.">
-  <meta name="keywords" content="Bodh Gaya travel, Bihar tourism, Buddhist circuit tour, taxi rental Bodh Gaya, Tempo Traveller on rent, Force Urbania booking, bus booking Bihar, Sariputra Tour">
-  <meta name="author" content="Sariputra Tour & Holidays">
-  <meta name="theme-color" content="#8b1e0f">
-  
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="description"
+    content="Sariputra Tour & Holidays offers travel packages, Buddhist pilgrimage tours, and vehicle rentals (Tempo Traveller, Force Urbania, Buses) in Bodh Gaya, Bihar, and all over India."
+  >
+
+  <meta
+    name="keywords"
+    content="Bodh Gaya travel, Bihar tourism, Buddhist circuit tour, taxi rental Bodh Gaya, Tempo Traveller on rent, Force Urbania booking, bus booking Bihar, Sariputra Tour"
+  >
+
+  <meta
+    name="author"
+    content="Sariputra Tour & Holidays"
+  >
+
+  <meta
+    name="theme-color"
+    content="#8b1e0f"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
+
 <body>
 
-  <!-- Navigation Header -->
+  <!-- =========================================
+       NAVIGATION HEADER
+       ========================================= -->
+
   <header class="top">
-    <div class="logo">☸ <span>Sariputra</span></div>
-    
-    <div class="search" role="search">
-      <input id="search" placeholder="Search destinations, packages, vehicles..." oninput="filterCards()" aria-label="Search travel marketplace">
-      <button onclick="filterCards()" aria-label="Search button">🔎</button>
+
+    <div class="logo">
+      ☸ <span>Sariputra</span>
     </div>
-    
+
+    <div
+      class="search"
+      role="search"
+    >
+      <input
+        id="search"
+        placeholder="Search destinations, packages, vehicles..."
+        oninput="filterCards()"
+        aria-label="Search travel marketplace"
+      >
+
+      <button
+        onclick="filterCards()"
+        aria-label="Search button"
+      >
+        🔎
+      </button>
+    </div>
+
     <nav>
-      <a href="#packages">Packages</a>
-      <a href="#fleet">Vehicles</a>
-      <a href="#ai-tools">AI Tools</a>
-      <a href="#calculator">Calculator</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="#contact">Enquiry</a>
-      <button onclick="openAI()" aria-label="Open AI Assistant">🤖 AI</button>
+
+      <a href="#packages">
+        Packages
+      </a>
+
+      <a href="#fleet">
+        Vehicles
+      </a>
+
+      <a href="#ai-tools">
+        AI Tools
+      </a>
+
+      <a href="#calculator">
+        Calculator
+      </a>
+
+      <a href="#testimonials">
+        Reviews
+      </a>
+
+      <a href="#contact">
+        Enquiry
+      </a>
+
+      <button
+        onclick="openAI()"
+        aria-label="Open AI Assistant"
+      >
+        🤖 AI
+      </button>
+
     </nav>
+
   </header>
 
-  <!-- Notice Bar -->
+
+  <!-- =========================================
+       NOTICE BAR
+       ========================================= -->
+
   <div class="notice">
-    🚐 Bodh Gaya • Bihar • All India &nbsp; | &nbsp; 📞 +91 99399 95360 / +91 90656 71630
+
+    🚐 Bodh Gaya • Bihar • All India
+
+    &nbsp; | &nbsp;
+
+    📞 +91 99399 95360 / +91 90656 71630
+
   </div>
+
 
   <main>
-    <!-- Hero Section -->
+
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+
     <section class="hero">
+
       <div>
-        <span class="tag">TRAVEL • HOTEL • VEHICLE • PILGRIMAGE</span>
-        <h1>Your journey, <b>booked simply.</b></h1>
-        <p>Compare tour packages, choose your vehicle, view photo galleries, calculate rental fares, generate AI itineraries, and speak with our AI travel assistant.</p>
+
+        <span class="tag">
+          TRAVEL • HOTEL • VEHICLE • PILGRIMAGE
+        </span>
+
+        <h1>
+          Your journey, <b>booked simply.</b>
+        </h1>
+
+        <p>
+          Compare tour packages, choose your vehicle, view photo galleries,
+          calculate rental fares, generate AI itineraries, and speak with
+          our AI travel assistant.
+        </p>
+
         <div class="actions">
-          <a class="btn primary" href="#packages">Explore Packages</a>
-          <a class="btn" href="#contact">Get Quote</a>
+
+          <a
+            class="btn primary"
+            href="#packages"
+          >
+            Explore Packages
+          </a>
+
+          <a
+            class="btn"
+            href="#contact"
+          >
+            Get Quote
+          </a>
+
         </div>
+
       </div>
-      <div class="hero-photo clickable-photo" onclick="openPackageGallery('buddhist')">
-        <img src="assets/photos/hero.jpg" onerror="this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=1200&auto=format&fit=crop'" alt="Sariputra travel banner showing Bodh Gaya destination">
-        <span class="photo-count-badge">📷 Click for Gallery</span>
+
+
+      <!-- Hero Photo -->
+
+      <div
+        class="hero-photo clickable-photo"
+        onclick="openPackageGallery('buddhist')"
+      >
+
+        <img
+          src="assets/photos/hero.jpg"
+          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=1200&auto=format&fit=crop';"
+          alt="Sariputra travel banner showing Bodh Gaya destination"
+        >
+
+        <span class="photo-count-badge">
+          📷 Click for Gallery
+        </span>
+
       </div>
+
     </section>
 
-    <!-- Tour Packages Section -->
+
+    <!-- =========================================
+         TOUR PACKAGES SECTION
+         ========================================= -->
+
     <section id="packages">
+
       <div class="section-title">
+
         <div>
-          <small>POPULAR</small>
-          <h2>Tour Packages</h2>
+
+          <small>
+            POPULAR
+          </small>
+
+          <h2>
+            Tour Packages
+          </h2>
+
         </div>
+
         <div class="filters">
-          <button onclick="setCat('all')">All</button>
-          <button onclick="setCat('pilgrimage')">Pilgrimage</button>
-          <button onclick="setCat('heritage')">Heritage</button>
-          <button onclick="setCat('hills')">Hills</button>
-          <button onclick="setCat('south')">South India</button>
+
+          <button onclick="setCat('all')">
+            All
+          </button>
+
+          <button onclick="setCat('pilgrimage')">
+            Pilgrimage
+          </button>
+
+          <button onclick="setCat('heritage')">
+            Heritage
+          </button>
+
+          <button onclick="setCat('hills')">
+            Hills
+          </button>
+
+          <button onclick="setCat('south')">
+            South India
+          </button>
+
         </div>
+
       </div>
-      <div id="cards" class="grid"></div>
+
+      <div
+        id="cards"
+        class="grid"
+      ></div>
+
     </section>
 
-    <!-- Dynamic Fleet Section -->
+
+    <!-- =========================================
+         DYNAMIC FLEET SECTION
+         ========================================= -->
+
     <section id="fleet">
+
       <div class="section-title">
+
         <div>
-          <small>OUR FLEET</small>
-          <h2>Choose your vehicle (Click photo for full gallery)</h2>
+
+          <small>
+            OUR FLEET
+          </small>
+
+          <h2>
+            Choose your vehicle
+            (Click photo for full gallery)
+          </h2>
+
         </div>
+
       </div>
-      
-      <!-- Container populated dynamically by app.js -->
-      <div id="vehicle-grid" class="vehicle-grid"></div>
+
+      <!-- Populated dynamically by app.js -->
+
+      <div
+        id="vehicle-grid"
+        class="vehicle-grid"
+      ></div>
+
     </section>
 
-    <!-- AI Trip Planner & Matchmaker Section -->
-    <section id="ai-tools" style="max-width:1250px; margin:40px auto; padding:0 10px;">
+
+    <!-- =========================================
+         AI TRIP PLANNER & MATCHMAKER
+         ========================================= -->
+
+    <section
+      id="ai-tools"
+      style="max-width:1250px; margin:40px auto; padding:0 10px;"
+    >
+
       <div class="section-title">
+
         <div>
-          <small>INTELLIGENT TRAVEL TOOLS</small>
-          <h2>AI Custom Itinerary & Matchmaker</h2>
+
+          <small>
+            INTELLIGENT TRAVEL TOOLS
+          </small>
+
+          <h2>
+            AI Custom Itinerary & Matchmaker
+          </h2>
+
         </div>
+
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <div
+        style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"
+      >
+
         <!-- AI Custom Itinerary Generator -->
-        <div class="contact-card" style="margin-top:0;">
-          <h3 style="color:#8b1e0f; margin-top:0;">✨ AI Custom Itinerary Generator</h3>
-          <p style="color:#667085; font-size:13px;">Generate an instant day-by-day sightseeing plan based on your group type and destination.</p>
-          
-          <div style="display:grid; gap:10px; margin-top:14px;">
+
+        <div
+          class="contact-card"
+          style="margin-top:0;"
+        >
+
+          <h3
+            style="color:#8b1e0f; margin-top:0;"
+          >
+            ✨ AI Custom Itinerary Generator
+          </h3>
+
+          <p
+            style="color:#667085; font-size:13px;"
+          >
+            Generate an instant day-by-day sightseeing plan based on
+            your group type and destination.
+          </p>
+
+
+          <div
+            style="display:grid; gap:10px; margin-top:14px;"
+          >
+
             <select id="ai-gen-dest">
-              <option value="Bodh Gaya & Buddhist Circuit">Bodh Gaya & Buddhist Circuit</option>
-              <option value="Rajgir & Nalanda Explorer">Rajgir & Nalanda Explorer</option>
-              <option value="Golden Triangle (Delhi-Agra-Jaipur)">Golden Triangle (Delhi-Agra-Jaipur)</option>
-              <option value="Gangtok & Sikkim Odyssey">Gangtok & Sikkim Odyssey</option>
+
+              <option value="Bodh Gaya & Buddhist Circuit">
+                Bodh Gaya & Buddhist Circuit
+              </option>
+
+              <option value="Rajgir & Nalanda Explorer">
+                Rajgir & Nalanda Explorer
+              </option>
+
+              <option value="Golden Triangle (Delhi-Agra-Jaipur)">
+                Golden Triangle (Delhi-Agra-Jaipur)
+              </option>
+
+              <option value="Gangtok & Sikkim Odyssey">
+                Gangtok & Sikkim Odyssey
+              </option>
+
             </select>
-            
+
+
             <select id="ai-gen-type">
-              <option value="Pilgrimage & Spiritual">Pilgrimage & Spiritual</option>
-              <option value="Family Vacation">Family Vacation</option>
-              <option value="Heritage & Culture">Heritage & Culture</option>
+
+              <option value="Pilgrimage & Spiritual">
+                Pilgrimage & Spiritual
+              </option>
+
+              <option value="Family Vacation">
+                Family Vacation
+              </option>
+
+              <option value="Heritage & Culture">
+                Heritage & Culture
+              </option>
+
             </select>
 
-            <input type="number" id="ai-gen-days" value="4" min="1" max="15" placeholder="Number of days">
-            
-            <button class="btn primary" onclick="generateAIItinerary()">⚡ Generate AI Plan</button>
+
+            <input
+              type="number"
+              id="ai-gen-days"
+              value="4"
+              min="1"
+              max="15"
+              placeholder="Number of days"
+            >
+
+
+            <button
+              class="btn primary"
+              onclick="generateAIItinerary()"
+            >
+              ⚡ Generate AI Plan
+            </button>
+
           </div>
 
-          <div id="ai-itinerary-output" style="display:none; margin-top:16px; padding:14px; background:#fdf2f0; border-left:4px solid #8b1e0f; border-radius:6px;">
-            <h4 id="ai-plan-title" style="margin:0 0 8px 0; color:#8b1e0f;"></h4>
-            <div id="ai-plan-body" style="font-size:13px; line-height:1.6; color:#17202a;"></div>
-            <button class="btn" style="margin-top:12px; width:100%;" onclick="sendAIPlanToWhatsApp()">💬 Book This AI Plan on WhatsApp</button>
+
+          <div
+            id="ai-itinerary-output"
+            style="
+              display:none;
+              margin-top:16px;
+              padding:14px;
+              background:#fdf2f0;
+              border-left:4px solid #8b1e0f;
+              border-radius:6px;
+            "
+          >
+
+            <h4
+              id="ai-plan-title"
+              style="margin:0 0 8px 0; color:#8b1e0f;"
+            ></h4>
+
+            <div
+              id="ai-plan-body"
+              style="
+                font-size:13px;
+                line-height:1.6;
+                color:#17202a;
+              "
+            ></div>
+
+
+            <button
+              class="btn"
+              style="margin-top:12px; width:100%;"
+              onclick="sendAIPlanToWhatsApp()"
+            >
+              💬 Book This AI Plan on WhatsApp
+            </button>
+
           </div>
+
         </div>
+
 
         <!-- AI Matchmaker Quiz -->
-        <div class="contact-card" style="margin-top:0;">
-          <h3 style="color:#8b1e0f; margin-top:0;">🎯 AI Travel Matchmaker Quiz</h3>
-          <p style="color:#667085; font-size:13px;">Answer 3 quick questions to find the perfect vehicle and package for your budget.</p>
 
-          <div id="ai-quiz-box" style="display:grid; gap:10px; margin-top:14px;">
-            <label><b>1. How many total passengers?</b></label>
+        <div
+          class="contact-card"
+          style="margin-top:0;"
+        >
+
+          <h3
+            style="color:#8b1e0f; margin-top:0;"
+          >
+            🎯 AI Travel Matchmaker Quiz
+          </h3>
+
+          <p
+            style="color:#667085; font-size:13px;"
+          >
+            Answer 3 quick questions to find the perfect vehicle
+            and package for your budget.
+          </p>
+
+
+          <div
+            id="ai-quiz-box"
+            style="display:grid; gap:10px; margin-top:14px;"
+          >
+
+            <label>
+              <b>1. How many total passengers?</b>
+            </label>
+
             <select id="quiz-pax">
-              <option value="small">1 to 6 Passengers</option>
-              <option value="medium">7 to 16 Passengers</option>
-              <option value="large">17+ Passengers (Bus/Coach)</option>
+
+              <option value="small">
+                1 to 6 Passengers
+              </option>
+
+              <option value="medium">
+                7 to 16 Passengers
+              </option>
+
+              <option value="large">
+                17+ Passengers (Bus/Coach)
+              </option>
+
             </select>
 
-            <label><b>2. Primary trip goal?</b></label>
+
+            <label>
+              <b>2. Primary trip goal?</b>
+            </label>
+
             <select id="quiz-goal">
-              <option value="temple">Buddhist Temple / Religious Tour</option>
-              <option value="sightseeing">Hill Station / Scenic Tour</option>
-              <option value="outstation">Long Distance Express Travel</option>
+
+              <option value="temple">
+                Buddhist Temple / Religious Tour
+              </option>
+
+              <option value="sightseeing">
+                Hill Station / Scenic Tour
+              </option>
+
+              <option value="outstation">
+                Long Distance Express Travel
+              </option>
+
             </select>
 
-            <button class="btn primary" onclick="runAIMatchmaker()">🔍 Find Best Match</button>
+
+            <button
+              class="btn primary"
+              onclick="runAIMatchmaker()"
+            >
+              🔍 Find Best Match
+            </button>
+
           </div>
 
-          <div id="ai-match-result" style="display:none; margin-top:16px; padding:14px; background:#fff3cd; border-radius:6px;">
-            <h4 style="margin:0 0 6px 0; color:#b45309;">Recommended Match:</h4>
-            <p id="ai-match-text" style="font-size:13px; font-weight:600; margin:0 0 10px 0;"></p>
-            <button class="btn primary" style="width:100%;" onclick="jumpToRecommendation()">View Recommended Option</button>
+
+          <div
+            id="ai-match-result"
+            style="
+              display:none;
+              margin-top:16px;
+              padding:14px;
+              background:#fff3cd;
+              border-radius:6px;
+            "
+          >
+
+            <h4
+              style="margin:0 0 6px 0; color:#b45309;"
+            >
+              Recommended Match:
+            </h4>
+
+            <p
+              id="ai-match-text"
+              style="
+                font-size:13px;
+                font-weight:600;
+                margin:0 0 10px 0;
+              "
+            ></p>
+
+
+            <button
+              class="btn primary"
+              style="width:100%;"
+              onclick="jumpToRecommendation()"
+            >
+              View Recommended Option
+            </button>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Interactive Rental Fare Calculator Section -->
-    <section id="calculator" class="contact" style="margin-top:20px;">
+
+    <!-- =========================================
+         INTERACTIVE RENTAL FARE CALCULATOR
+         ========================================= -->
+
+    <section
+      id="calculator"
+      class="contact"
+      style="margin-top:20px;"
+    >
+
       <div>
-        <small>INSTANT ESTIMATOR</small>
-        <h2>Rental Fare Calculator</h2>
-        <p>Get an instant cost estimate for outstation trips and local sight-seeing in Bihar and All-India routes.</p>
+
+        <small>
+          INSTANT ESTIMATOR
+        </small>
+
+        <h2>
+          Rental Fare Calculator
+        </h2>
+
+        <p>
+          Get an instant cost estimate for outstation trips and
+          local sight-seeing in Bihar and All-India routes.
+        </p>
+
       </div>
-      <div class="contact-card" style="margin-top:0;">
-        <div style="display:grid; gap:12px;">
-          <label><b>Select Vehicle:</b></label>
-          <select id="calc-vehicle" onchange="calculateFare()">
-            <option value="15">7 Seater Family Vehicle (₹15/km)</option>
-            <option value="25">17 Seater Force Urbania (₹25/km)</option>
-            <option value="22">17 Seater Tempo Traveller (₹22/km)</option>
-            <option value="35">35 Seater Mini Bus (₹35/km)</option>
-            <option value="42">45 Seater Tourist Bus (₹42/km)</option>
-            <option value="48">49 Seater Premium Bus (₹48/km)</option>
+
+
+      <div
+        class="contact-card"
+        style="margin-top:0;"
+      >
+
+        <div
+          style="display:grid; gap:12px;"
+        >
+
+          <label>
+            <b>Select Vehicle:</b>
+          </label>
+
+
+          <select
+            id="calc-vehicle"
+            onchange="calculateFare()"
+          >
+
+            <option value="15">
+              7 Seater Family Vehicle (₹15/km)
+            </option>
+
+            <option value="25">
+              17 Seater Force Urbania (₹25/km)
+            </option>
+
+            <option value="22">
+              17 Seater Tempo Traveller (₹22/km)
+            </option>
+
+            <option value="35">
+              35 Seater Mini Bus (₹35/km)
+            </option>
+
+            <option value="42">
+              45 Seater Tourist Bus (₹42/km)
+            </option>
+
+            <option value="48">
+              49 Seater Premium Bus (₹48/km)
+            </option>
+
           </select>
 
-          <label><b>Estimated Distance (Total KM):</b></label>
-          <input type="number" id="calc-km" value="300" min="50" oninput="calculateFare()">
 
-          <label><b>Total Trip Days:</b></label>
-          <input type="number" id="calc-days" value="2" min="1" oninput="calculateFare()">
+          <label>
+            <b>Estimated Distance (Total KM):</b>
+          </label>
 
-          <div class="payment-info" style="margin-top:5px;">
-            <p>Estimated Total: <b id="calc-total" style="font-size:18px; color:#8b1e0f;">₹4,500</b></p>
-            <small style="color:#666;">(Includes vehicle fare & driver allowance estimate)</small>
+          <input
+            type="number"
+            id="calc-km"
+            value="300"
+            min="50"
+            oninput="calculateFare()"
+          >
+
+
+          <label>
+            <b>Total Trip Days:</b>
+          </label>
+
+          <input
+            type="number"
+            id="calc-days"
+            value="2"
+            min="1"
+            oninput="calculateFare()"
+          >
+
+
+          <div
+            class="payment-info"
+            style="margin-top:5px;"
+          >
+
+            <p>
+
+              Estimated Total:
+
+              <b
+                id="calc-total"
+                style="font-size:18px; color:#8b1e0f;"
+              >
+                ₹4,500
+              </b>
+
+            </p>
+
+            <small style="color:#666;">
+              (Includes vehicle fare & driver allowance estimate)
+            </small>
+
           </div>
 
-          <button class="btn primary" onclick="sendCalculatedFare()">Send Calculated Fare to WhatsApp</button>
+
+          <button
+            class="btn primary"
+            onclick="sendCalculatedFare()"
+          >
+            Send Calculated Fare to WhatsApp
+          </button>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Testimonials / Reviews Section -->
-    <section id="testimonials" class="review-section">
+
+    <!-- =========================================
+         TESTIMONIALS / REVIEWS
+         ========================================= -->
+
+    <section
+      id="testimonials"
+      class="review-section"
+    >
+
       <div class="section-title">
+
         <div>
-          <small>TESTIMONIALS</small>
-          <h2>What Our Travelers Say</h2>
+
+          <small>
+            TESTIMONIALS
+          </small>
+
+          <h2>
+            What Our Travelers Say
+          </h2>
+
         </div>
+
       </div>
+
+
       <div class="review-grid">
+
         <div class="review-card">
-          <p class="stars">★★★★★</p>
-          <p>"Excellent service! We booked a 17-seater Tempo Traveller for our Bodh Gaya to Rajgir trip. The driver was very polite and the vehicle was clean."</p>
-          <h4>- Rahul Verma</h4>
+
+          <p class="stars">
+            ★★★★★
+          </p>
+
+          <p>
+            "Excellent service! We booked a 17-seater Tempo Traveller
+            for our Bodh Gaya to Rajgir trip. The driver was very polite
+            and the vehicle was clean."
+          </p>
+
+          <h4>
+            - Rahul Verma
+          </h4>
+
         </div>
+
+
         <div class="review-card">
-          <p class="stars">★★★★★</p>
-          <p>"Sariputra Tours made our Buddhist Pilgrimage very smooth and hassle-free. Highly recommended for family trips in Bihar."</p>
-          <h4>- Amit Sharma</h4>
+
+          <p class="stars">
+            ★★★★★
+          </p>
+
+          <p>
+            "Sariputra Tours made our Buddhist Pilgrimage very smooth
+            and hassle-free. Highly recommended for family trips in Bihar."
+          </p>
+
+          <h4>
+            - Amit Sharma
+          </h4>
+
         </div>
+
+
         <div class="review-card">
-          <p class="stars">★★★★★</p>
-          <p>"Great pricing for Force Urbania rental. Punctual service and smooth online payment process."</p>
-          <h4>- Sneha Roy</h4>
+
+          <p class="stars">
+            ★★★★★
+          </p>
+
+          <p>
+            "Great pricing for Force Urbania rental. Punctual service
+            and smooth online payment process."
+          </p>
+
+          <h4>
+            - Sneha Roy
+          </h4>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- Interactive FAQ Accordion Section -->
-    <section id="faq" style="max-width:1250px; margin:40px auto; padding:0 10px;">
+
+    <!-- =========================================
+         FAQ ACCORDION
+         ========================================= -->
+
+    <section
+      id="faq"
+      style="max-width:1250px; margin:40px auto; padding:0 10px;"
+    >
+
       <div class="section-title">
+
         <div>
-          <small>HELP & INFO</small>
-          <h2>Frequently Asked Questions</h2>
+
+          <small>
+            HELP & INFO
+          </small>
+
+          <h2>
+            Frequently Asked Questions
+          </h2>
+
         </div>
+
       </div>
-      <div class="contact-card" style="line-height:1.6;">
-        <details style="margin-bottom:12px; cursor:pointer;">
-          <summary style="font-weight:700; color:#8b1e0f;">How do I confirm my vehicle or tour booking?</summary>
-          <p style="margin-top:6px; color:#475569;">You can submit an inquiry via WhatsApp or form. A token booking amount can be paid via Google Pay, PhonePe, or Paytm to lock your travel dates.</p>
+
+
+      <div
+        class="contact-card"
+        style="line-height:1.6;"
+      >
+
+        <details
+          style="margin-bottom:12px; cursor:pointer;"
+        >
+
+          <summary
+            style="font-weight:700; color:#8b1e0f;"
+          >
+            How do I confirm my vehicle or tour booking?
+          </summary>
+
+          <p
+            style="margin-top:6px; color:#475569;"
+          >
+            You can submit an inquiry via WhatsApp or form.
+            A token booking amount can be paid via Google Pay,
+            PhonePe, or Paytm to lock your travel dates.
+          </p>
+
         </details>
-        <details style="margin-bottom:12px; cursor:pointer;">
-          <summary style="font-weight:700; color:#8b1e0f;">Does the rental rate include driver allowance and toll charges?</summary>
-          <p style="margin-top:6px; color:#475569;">Per-kilometer rates cover the vehicle and fuel. Driver day allowance, toll taxes, and state taxes are calculated transparently based on route requirements.</p>
+
+
+        <details
+          style="margin-bottom:12px; cursor:pointer;"
+        >
+
+          <summary
+            style="font-weight:700; color:#8b1e0f;"
+          >
+            Does the rental rate include driver allowance and toll charges?
+          </summary>
+
+          <p
+            style="margin-top:6px; color:#475569;"
+          >
+            Per-kilometer rates cover the vehicle and fuel.
+            Driver day allowance, toll taxes, and state taxes are
+            calculated transparently based on route requirements.
+          </p>
+
         </details>
-        <details style="cursor:pointer;">
-          <summary style="font-weight:700; color:#8b1e0f;">Can we request pickup directly from Patna Airport or Gaya Railway Station?</summary>
-          <p style="margin-top:6px; color:#475569;">Yes! We provide 24/7 airport and railway station pickups across Bodh Gaya, Gaya, Patna, and Varanasi.</p>
+
+
+        <details
+          style="cursor:pointer;"
+        >
+
+          <summary
+            style="font-weight:700; color:#8b1e0f;"
+          >
+            Can we request pickup directly from Patna Airport
+            or Gaya Railway Station?
+          </summary>
+
+          <p
+            style="margin-top:6px; color:#475569;"
+          >
+            Yes! We provide 24/7 airport and railway station
+            pickups across Bodh Gaya, Gaya, Patna, and Varanasi.
+          </p>
+
         </details>
+
       </div>
+
     </section>
 
-    <!-- Booking Desk & Enquiry Section -->
-    <section id="contact" class="contact">
+
+    <!-- =========================================
+         BOOKING DESK & ENQUIRY
+         ========================================= -->
+
+    <section
+      id="contact"
+      class="contact"
+    >
+
       <div>
-        <small>BOOKING DESK</small>
-        <h2>Plan your trip</h2>
-        <p>Submit the form below and we will prepare your instant WhatsApp enquiry quotation.</p>
-        
+
+        <small>
+          BOOKING DESK
+        </small>
+
+        <h2>
+          Plan your trip
+        </h2>
+
+        <p>
+          Submit the form below and we will prepare your instant
+          WhatsApp enquiry quotation.
+        </p>
+
+
         <div class="contact-card">
+
           📞 <b>+91 99399 95360</b><br>
+
           📞 <b>+91 90656 71630</b><br>
+
           📧 sariputratours@gmail.com<br>
+
           📍 Bodh Gaya, Bihar, India
+
         </div>
+
 
         <div class="payment-info">
-          <p>✅ <i>We accept Google Pay, PhonePe, Paytm, and Direct Bank Transfers for advance token bookings.</i></p>
+
+          <p>
+
+            ✅
+
+            <i>
+              We accept Google Pay, PhonePe, Paytm, and Direct
+              Bank Transfers for advance token bookings.
+            </i>
+
+          </p>
+
         </div>
+
       </div>
+
 
       <form onsubmit="submitEnquiry(event)">
-        <input id="name" required placeholder="Full name">
-        <input id="phone" required placeholder="Mobile number">
-        <input id="date" type="date">
-        
+
+        <input
+          id="name"
+          required
+          placeholder="Full name"
+        >
+
+        <input
+          id="phone"
+          required
+          placeholder="Mobile number"
+        >
+
+        <input
+          id="date"
+          type="date"
+        >
+
+
         <select id="vehicle">
-          <option value="">Any vehicle</option>
-          <option>7 Seater Family Vehicle</option>
-          <option>17 Seater Force Urbania</option>
-          <option>17 Seater Tempo Traveller</option>
-          <option>35 Seater Mini Bus</option>
-          <option>45 Seater Tourist Bus</option>
-          <option>49 Seater Premium Bus</option>
+
+          <option value="">
+            Any vehicle
+          </option>
+
+          <option>
+            7 Seater Family Vehicle
+          </option>
+
+          <option>
+            17 Seater Force Urbania
+          </option>
+
+          <option>
+            17 Seater Tempo Traveller
+          </option>
+
+          <option>
+            35 Seater Mini Bus
+          </option>
+
+          <option>
+            45 Seater Tourist Bus
+          </option>
+
+          <option>
+            49 Seater Premium Bus
+          </option>
+
         </select>
-        
-        <input id="destination" required placeholder="Destination / route">
-        <input id="people" type="number" min="1" placeholder="Passengers">
-        <input id="days" type="number" min="1" placeholder="Trip days">
-        
-        <textarea id="message" placeholder="Pickup, hotel, sightseeing or special requirements"></textarea>
-        
-        <button class="btn primary" type="submit">Send to WhatsApp</button>
-        <button class="btn" type="button" onclick="pay()">💳 Pay Booking Amount</button>
+
+
+        <input
+          id="destination"
+          required
+          placeholder="Destination / route"
+        >
+
+        <input
+          id="people"
+          type="number"
+          min="1"
+          placeholder="Passengers"
+        >
+
+        <input
+          id="days"
+          type="number"
+          min="1"
+          placeholder="Trip days"
+        >
+
+        <textarea
+          id="message"
+          placeholder="Pickup, hotel, sightseeing or special requirements"
+        ></textarea>
+
+
+        <button
+          class="btn primary"
+          type="submit"
+        >
+          Send to WhatsApp
+        </button>
+
+
+        <button
+          class="btn"
+          type="button"
+          onclick="pay()"
+        >
+          💳 Pay Booking Amount
+        </button>
+
       </form>
+
     </section>
+
   </main>
 
-  <!-- Floating WhatsApp Action -->
-  <button class="float-wa" onclick="whatsapp('Hello Sariputra Tour & Holidays, I want to enquire about tour booking.')">💬 WhatsApp</button>
 
-  <!-- AI Travel Assistant Modal Box -->
-  <div id="ai" class="ai" role="dialog" aria-modal="true">
+  <!-- =========================================
+       FLOATING WHATSAPP ACTION
+       ========================================= -->
+
+  <button
+    class="float-wa"
+    onclick="whatsapp('Hello Sariputra Tour & Holidays, I want to enquire about tour booking.')"
+  >
+    💬 WhatsApp
+  </button>
+
+
+  <!-- =========================================
+       AI TRAVEL ASSISTANT MODAL
+       ========================================= -->
+
+  <div
+    id="ai"
+    class="ai"
+    role="dialog"
+    aria-modal="true"
+  >
+
     <div class="ai-box">
-      <button class="close" onclick="closeAI()">&times;</button>
-      <h3>🤖 AI Travel Assistant</h3>
-      <div id="chat" class="chat"></div>
-      
+
+      <button
+        class="close"
+        onclick="closeAI()"
+        aria-label="Close AI Assistant"
+      >
+        &times;
+      </button>
+
+
+      <h3>
+        🤖 AI Travel Assistant
+      </h3>
+
+
+      <div
+        id="chat"
+        class="chat"
+      ></div>
+
+
       <div class="chat-row">
-        <input id="aiInput" placeholder="Ask about packages, vehicles...">
-        <button onclick="askAI()">Send</button>
-        <button onclick="speakInput()">🎙️</button>
+
+        <input
+          id="aiInput"
+          placeholder="Ask about packages, vehicles..."
+        >
+
+        <button onclick="askAI()">
+          Send
+        </button>
+
+        <button
+          onclick="speakInput()"
+          aria-label="Speak question"
+        >
+          🎙️
+        </button>
+
       </div>
-      
-      <button class="speak" onclick="speakLast()" style="margin-top: 10px; width: 100%;">🔊 Speak answer</button>
+
+
+      <button
+        class="speak"
+        onclick="speakLast()"
+        style="margin-top:10px; width:100%;"
+      >
+        🔊 Speak answer
+      </button>
+
     </div>
+
   </div>
 
-  <!-- Interactive Multi-Photo Gallery Modal -->
-  <div id="gallery-modal" class="gallery-modal" role="dialog" aria-hidden="true">
+
+  <!-- =========================================
+       PHOTO GALLERY MODAL - CAROUSEL
+       ========================================= -->
+
+  <div
+    id="gallery-modal"
+    class="gallery-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+  >
+
     <div class="gallery-content">
-      <button class="gallery-close" onclick="closeGallery()">&times;</button>
-      <h3 id="gallery-title">Photo Gallery</h3>
-      
+
+      <!-- Close Button -->
+
+      <button
+        class="gallery-close"
+        onclick="closeGallery()"
+        aria-label="Close gallery"
+      >
+        &times;
+      </button>
+
+
+      <!-- Gallery Title -->
+
+      <h3 id="gallery-title">
+        Photo Gallery
+      </h3>
+
+
+      <!-- Main Photo + Navigation -->
+
       <div class="gallery-main-view">
-        <img id="gallery-active-img" src="" alt="Gallery Preview">
+
+        <!-- Previous Photo -->
+
+        <button
+          class="gallery-nav gallery-prev"
+          id="gallery-prev"
+          type="button"
+          aria-label="Previous photo"
+        >
+          &#10094;
+        </button>
+
+
+        <!-- Main Active Photo -->
+
+        <img
+          id="gallery-active-img"
+          src=""
+          alt="Gallery Preview"
+          draggable="false"
+        >
+
+
+        <!-- Next Photo -->
+
+        <button
+          class="gallery-nav gallery-next"
+          id="gallery-next"
+          type="button"
+          aria-label="Next photo"
+        >
+          &#10095;
+        </button>
+
       </div>
-      
-      <div id="gallery-thumbs" class="thumbs-grid"></div>
+
+
+      <!-- Photo Counter -->
+
+      <div
+        id="gallery-counter"
+        class="gallery-counter"
+        aria-live="polite"
+      >
+        1 / 5
+      </div>
+
     </div>
+
   </div>
 
-  <!-- Footer -->
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
   <footer>
-    © <span id="year"></span> Sariputra Tour & Holidays • Travel Marketplace • <a href="llms.txt">AI Information</a>
+
+    © <span id="year"></span>
+
+    Sariputra Tour & Holidays • Travel Marketplace •
+
+    <a href="llms.txt">
+      AI Information
+    </a>
+
   </footer>
 
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+
   <script src="app.js"></script>
+
 </body>
 </html>
+```

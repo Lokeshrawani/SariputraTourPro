@@ -22,13 +22,13 @@ const packages = [
     duration: "5 Days / 4 Nights",
     route: "Bodh Gaya → Rajgir → Nalanda → Varanasi → Kushinagar",
     price: 12500,
-    img: "assets/photos/hero.jpg",
+    img: "assets/photos/buddhist-circuit-1.jpg",
     gallery: [
-      "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mahabodhi_Temple_-_Bodh_Gaya.jpg",
-      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/buddhist-circuit-1.jpg",
+      "assets/photos/buddhist-circuit-2.jpg",
+      "assets/photos/buddhist-circuit-3.jpg",
+      "assets/photos/buddhist-circuit-4.jpg",
+      "assets/photos/buddhist-circuit-5.jpg"
     ]
   },
   {
@@ -70,13 +70,13 @@ const packages = [
     duration: "10 Days / 9 Nights",
     route: "Haridwar → Yamunotri → Gangotri → Kedarnath → Badrinath",
     price: 28000,
-    img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
+    img: "assets/photos/char-dham-1.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1609946784724-42777161b9e8?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/char-dham-1.jpg",
+      "assets/photos/char-dham-2.jpg",
+      "assets/photos/char-dham-3.jpg",
+      "assets/photos/char-dham-4.jpg",
+      "assets/photos/char-dham-5.jpg"
     ]
   },
   {
@@ -117,16 +117,16 @@ const packages = [
 // 🚐 FLEET VEHICLES DATA (5 Photos Each)
 // ==========================================
 const fleetData = {
-  "vehicle-7": {
+"vehicle-7": {
     title: "7 Seater Family Vehicle",
     desc: "Families & small groups",
     rate: "Starts @ ₹15/km",
     photos: [
-      "assets/photos/vehicle-7.jpg",
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/vehicle-7-2.jpg",
+      "assets/photos/vehicle-7-3.jpg",
+      "assets/photos/vehicle-7-4.jpg",
+      "assets/photos/vehicle-7-5.jpg",
+      "assets/photos/vehicle-7-6.jpg"
     ]
   },
   "urbania": {
@@ -134,23 +134,23 @@ const fleetData = {
     desc: "Premium group travel",
     rate: "Starts @ ₹25/km",
     photos: [
-      "assets/photos/urbania.jpg",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/urbania-1.jpg",
+      "assets/photos/urbania-2.jpg",
+      "assets/photos/urbania-3.jpg",
+      "assets/photos/urbania-4.jpg",
+      "assets/photos/urbania-5.jpg"
     ]
   },
   "tempo": {
     title: "17 Seater Tempo Traveller",
-    desc: "Spacious mid-size groups",
-    rate: "Starts @ ₹22/km",
+    desc: "Comfortable group travel",
+    rate: "Starts @ ₹20/km",
     photos: [
-      "assets/photos/tempo.jpg",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/tempo-1.jpg",
+      "assets/photos/tempo-2.jpg",
+      "assets/photos/tempo-3.jpg",
+      "assets/photos/tempo-4.jpg",
+      "assets/photos/tempo-5.jpg"
     ]
   },
   "bus-35": {
@@ -158,11 +158,11 @@ const fleetData = {
     desc: "Tour & pilgrimage groups",
     rate: "Starts @ ₹35/km",
     photos: [
-      "assets/photos/bus-35.jpg",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/bus-35-1.jpg",
+      "assets/photos/bus-35-2.jpg",
+      "assets/photos/bus-35-3.jpg",
+      "assets/photos/bus-35-4.jpg",
+      "assets/photos/bus-35-5.jpg"
     ]
   },
   "bus-45": {
@@ -170,11 +170,11 @@ const fleetData = {
     desc: "Long-distance coach",
     rate: "Starts @ ₹42/km",
     photos: [
-      "assets/photos/bus-45.jpg",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/bus-45-1.jpg",
+      "assets/photos/bus-45-2.jpg",
+      "assets/photos/bus-45-3.jpg",
+      "assets/photos/bus-45-4.jpg",
+      "assets/photos/bus-45-5.jpg"
     ]
   },
   "bus-49": {
@@ -182,11 +182,11 @@ const fleetData = {
     desc: "Large groups & events",
     rate: "Starts @ ₹48/km",
     photos: [
-      "assets/photos/bus-49.jpg",
-      "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1557223562-6c77ef16210f?q=80&w=900&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=900&auto=format&fit=crop"
+      "assets/photos/bus-49-1.jpg",
+      "assets/photos/bus-49-2.jpg",
+      "assets/photos/bus-49-3.jpg",
+      "assets/photos/bus-49-4.jpg",
+      "assets/photos/bus-49-5.jpg"
     ]
   }
 };

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sariputra-tour-pro-config
+data:
+  APP_NAME: "Sariputra Tour Pro"
+  APP_ENV: "production"

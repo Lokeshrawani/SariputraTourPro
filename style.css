@@ -1,4 +1,8 @@
-/* --- Base Reset & Typography --- */
+```css
+/* =========================================
+   BASE RESET & TYPOGRAPHY
+   ========================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -12,17 +16,33 @@ body {
   background: #f1f3f6;
   color: #17202a;
   font: 14px Arial, sans-serif;
+  line-height: 1.5;
 }
 
-/* --- Header & Navigation --- */
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+
 .top {
-  height: 64px;
+  min-height: 64px;
   background: #8b1e0f;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
   gap: 18px;
-  padding: 0 5%;
+  padding: 10px 5%;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -48,7 +68,14 @@ body {
   width: 100%;
   padding: 12px 15px;
   border: 0;
+  outline: none;
   border-radius: 4px 0 0 4px;
+  background: #fff;
+  color: #17202a;
+}
+
+.search input:focus {
+  outline: 2px solid #ffd166;
 }
 
 .search button {
@@ -56,6 +83,11 @@ body {
   padding: 0 18px;
   background: #ffd166;
   cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+.search button:hover {
+  background: #f5c34f;
 }
 
 .top nav {
@@ -64,7 +96,7 @@ body {
   align-items: center;
 }
 
-.top nav a, 
+.top nav a,
 .top nav button {
   color: #fff;
   text-decoration: none;
@@ -72,15 +104,26 @@ body {
   border: 0;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+.top nav a:hover,
+.top nav button:hover {
+  color: #ffd166;
 }
 
 .notice {
   background: #fff;
   padding: 9px 5%;
   font-size: 12px;
+  border-bottom: 1px solid #eee;
 }
 
-/* --- Hero Section --- */
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -90,10 +133,12 @@ body {
   background: #fff;
   padding: 32px;
   border-radius: 8px;
+  box-shadow: 0 2px 8px #00000012;
 }
 
 .hero h1 {
   font-size: 44px;
+  line-height: 1.15;
   margin: 10px 0;
 }
 
@@ -106,34 +151,57 @@ body {
   color: #667085;
 }
 
+.hero-photo {
+  cursor: pointer;
+}
+
 .hero-photo img {
   width: 100%;
   height: 310px;
   object-fit: cover;
   border-radius: 8px;
+  display: block;
 }
 
-.tag, small {
+.tag,
+small {
   font-weight: 800;
   color: #b45309;
   letter-spacing: 1px;
 }
 
+
+/* =========================================
+   BUTTONS & ACTIONS
+   ========================================= */
+
 .actions {
   display: flex;
   gap: 10px;
   margin-top: 22px;
+  flex-wrap: wrap;
 }
 
 .btn {
   border: 1px solid #ddd;
   background: #fff;
+  color: #17202a;
   padding: 12px 17px;
   border-radius: 5px;
   font-weight: 800;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .primary {
@@ -142,13 +210,24 @@ body {
   border-color: #8b1e0f;
 }
 
-/* --- Section Titles & Filters --- */
+.primary:hover {
+  background: #6f180c;
+  border-color: #6f180c;
+  color: #fff;
+}
+
+
+/* =========================================
+   SECTION TITLES & FILTERS
+   ========================================= */
+
 .section-title {
   max-width: 1250px;
   margin: 28px auto 15px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 15px;
   padding: 0 10px;
 }
 
@@ -166,14 +245,28 @@ body {
 .filters button {
   border: 1px solid #ddd;
   background: #fff;
+  color: #17202a;
   padding: 9px 13px;
   border-radius: 20px;
   cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* --- Grid Layouts (Cards, Fleet, Reviews) --- */
-.grid, 
-.vehicle-grid, 
+.filters button:hover {
+  border-color: #8b1e0f;
+  color: #8b1e0f;
+}
+
+
+/* =========================================
+   GRID LAYOUTS
+   ========================================= */
+
+.grid,
+.vehicle-grid,
 .review-grid {
   max-width: 1250px;
   margin: auto;
@@ -182,53 +275,120 @@ body {
   gap: 18px;
 }
 
-.card, 
-.vehicle-grid article, 
-.review-card, 
-.contact form, 
+
+/* =========================================
+   CARDS
+   ========================================= */
+
+.card,
+.vehicle-grid article,
+.review-card,
+.contact form,
 .contact-card {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px #00000012;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.card:hover, 
-.vehicle-grid article:hover, 
+.card:hover,
+.vehicle-grid article:hover,
 .review-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.card img, 
+.card img,
 .vehicle-grid img {
   width: 100%;
   height: 190px;
   object-fit: cover;
+  display: block;
 }
 
 .card-body {
   padding: 16px;
 }
 
-.card h3, 
+.card h3,
 .vehicle-grid h3 {
   margin: 8px 0 4px;
 }
 
-.vehicle-grid article h3, 
+.card p {
+  margin: 7px 0;
+}
+
+.vehicle-grid article h3,
 .vehicle-grid article p {
   padding: 0 15px;
   margin-bottom: 6px;
 }
 
-/* --- Pricing & Book Now Styling --- */
+
+/* =========================================
+   CLICKABLE PHOTOS
+   ========================================= */
+
+.clickable-photo {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background: #111;
+}
+
+.clickable-photo img {
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.clickable-photo:hover img {
+  transform: scale(1.04);
+}
+
+.clickable-photo:focus {
+  outline: 3px solid #ffd166;
+  outline-offset: -3px;
+}
+
+
+/* =========================================
+   PHOTO COUNT BADGE
+   ========================================= */
+
+.photo-count-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+
+/* =========================================
+   PRICING
+   ========================================= */
+
 .price {
   font-size: 18px;
   color: #8b1e0f;
   font-weight: 800;
   margin: 8px 0;
+}
+
+.price small {
+  color: #667085;
+  font-size: 12px;
+  letter-spacing: 0;
 }
 
 .book-btn {
@@ -252,9 +412,14 @@ body {
   display: flex;
   gap: 8px;
   margin-top: 12px;
+  flex-wrap: wrap;
 }
 
-/* --- Testimonials / Reviews Section --- */
+
+/* =========================================
+   TESTIMONIALS / REVIEWS
+   ========================================= */
+
 .review-section {
   margin-top: 30px;
 }
@@ -282,7 +447,11 @@ body {
   color: #17202a;
 }
 
-/* --- Contact & Booking Section --- */
+
+/* =========================================
+   CONTACT & BOOKING
+   ========================================= */
+
 .contact {
   max-width: 1250px;
   margin: 40px auto;
@@ -299,28 +468,33 @@ body {
   gap: 12px;
 }
 
-.contact input, 
-.contact select, 
+.contact input,
+.contact select,
 .contact textarea {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 100%;
+  background: #fff;
+  color: #17202a;
+  outline: none;
+}
+
+.contact input:focus,
+.contact select:focus,
+.contact textarea:focus {
+  border-color: #8b1e0f;
+  box-shadow: 0 0 0 2px rgba(139, 30, 15, 0.1);
 }
 
 .contact textarea {
   grid-column: 1 / -1;
   min-height: 100px;
+  resize: vertical;
 }
 
 .contact form button {
   align-self: start;
-}
-
-.contact-card {
-  padding: 18px;
-  line-height: 2;
-  margin-top: 15px;
 }
 
 .payment-info {
@@ -337,7 +511,11 @@ body {
   font-size: 13px;
 }
 
-/* --- Floating WhatsApp Button --- */
+
+/* =========================================
+   FLOATING WHATSAPP BUTTON
+   ========================================= */
+
 .float-wa {
   position: fixed;
   right: 20px;
@@ -351,15 +529,28 @@ body {
   cursor: pointer;
   z-index: 30;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* --- AI Modal --- */
+.float-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   AI MODAL
+   ========================================= */
+
 .ai {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 50;
+  padding: 15px;
 }
 
 .ai.open {
@@ -370,9 +561,12 @@ body {
 .ai-box {
   background: #fff;
   width: min(500px, 92vw);
+  max-height: 90vh;
+  overflow: auto;
   border-radius: 12px;
   padding: 20px;
   position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -383,10 +577,17 @@ body {
   background: none;
   font-size: 25px;
   cursor: pointer;
+  color: #17202a;
+}
+
+.close:hover {
+  color: #8b1e0f;
 }
 
 .chat {
   min-height: 240px;
+  max-height: 50vh;
+  overflow-y: auto;
   background: #f7f7f7;
   padding: 12px;
   border-radius: 8px;
@@ -394,10 +595,11 @@ body {
 }
 
 .msg {
-  padding: 8px;
+  padding: 8px 10px;
   margin: 6px;
   border-radius: 8px;
   background: #fff;
+  word-break: break-word;
 }
 
 .me {
@@ -413,9 +615,16 @@ body {
 .chat-row input {
   flex: 1;
   padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
 }
 
-.chat-row button, 
+.chat-row input:focus {
+  border-color: #8b1e0f;
+}
+
+.chat-row button,
 .speak {
   padding: 10px;
   border: 0;
@@ -425,7 +634,243 @@ body {
   cursor: pointer;
 }
 
-/* --- Footer --- */
+.chat-row button:hover,
+.speak:hover {
+  background: #6f180c;
+}
+
+
+/* =========================================
+   PHOTO GALLERY CAROUSEL
+   ========================================= */
+
+.gallery-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.82);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery-modal.open {
+  display: flex;
+}
+
+
+/* Gallery Main Content */
+
+.gallery-content {
+  position: relative;
+  width: min(95vw, 1000px);
+  max-height: 92vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Gallery Title */
+
+#gallery-title {
+  margin: 0 55px 15px 0;
+  color: #8b1e0f;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+
+/* Main Photo Area */
+
+.gallery-main-view {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111;
+  touch-action: pan-y;
+}
+
+
+/* Main Gallery Photo */
+
+.gallery-main-view img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 320px;
+  max-height: 70vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Previous / Next Buttons */
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery-prev {
+  left: 15px;
+}
+
+.gallery-next {
+  right: 15px;
+}
+
+.gallery-nav:hover {
+  background: #8b1e0f;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-nav:focus {
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+
+
+/* Photo Counter */
+
+.gallery-counter {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #8b1e0f;
+}
+
+
+/* Close Button */
+
+.gallery-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-close:hover {
+  background: #8b1e0f;
+}
+
+.gallery-close:focus {
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+
+
+/* Prevent Background Scrolling */
+
+body.gallery-open {
+  overflow: hidden;
+}
+
+
+/* =========================================
+   GALLERY SLIDE ANIMATION
+   ========================================= */
+
+.gallery-slide-left {
+  animation: gallerySlideLeft 0.25s ease;
+}
+
+.gallery-slide-right {
+  animation: gallerySlideRight 0.25s ease;
+}
+
+@keyframes gallerySlideLeft {
+  from {
+    opacity: 0.3;
+    transform: translateX(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gallerySlideRight {
+  from {
+    opacity: 0.3;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================
+   AI / CALCULATOR SUPPORT
+   ========================================= */
+
+#ai-itinerary-output,
+#ai-match-result {
+  margin-top: 15px;
+}
+
+#ai-plan-body {
+  line-height: 1.7;
+}
+
+#ai-plan-title,
+#ai-match-text {
+  color: #8b1e0f;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
 footer {
   padding: 25px;
   text-align: center;
@@ -439,52 +884,278 @@ footer a {
   text-decoration: none;
 }
 
-/* --- Responsive Layout Rules --- */
-@media (max-width: 850px) {
-  .hero, 
-  .contact {
-    grid-template-columns: 1fr;
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .top {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
-  .grid, 
-  .vehicle-grid, 
+
+  .hero,
+  .contact,
+  .grid,
+  .vehicle-grid,
   .review-grid {
-    grid-template-columns: 1fr 1fr;
+    margin-left: 15px;
+    margin-right: 15px;
   }
-  
-  .top nav a {
-    display: none;
+
+  .top nav {
+    gap: 6px;
   }
 }
 
-@media (max-width: 550px) {
-  .grid, 
-  .vehicle-grid, 
-  .review-grid {
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+  .hero,
+  .contact {
     grid-template-columns: 1fr;
   }
-  
-  .top {
-    padding: 0 10px;
+
+  .grid,
+  .vehicle-grid,
+  .review-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  
+
+  .top nav a {
+    display: none;
+  }
+
+  .top {
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+}
+
+
+/* =========================================
+   TABLET / MOBILE GALLERY
+   ========================================= */
+
+@media (max-width: 768px) {
+  .gallery-modal {
+    padding: 10px;
+  }
+
+  .gallery-content {
+    width: 94vw;
+    max-height: 94vh;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  #gallery-title {
+    font-size: 18px;
+    margin-right: 45px;
+  }
+
+  .gallery-main-view {
+    min-height: 240px;
+    border-radius: 10px;
+  }
+
+  .gallery-main-view img {
+    min-height: 240px;
+    max-height: 65vh;
+  }
+
+  .gallery-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 27px;
+  }
+
+  .gallery-prev {
+    left: 8px;
+  }
+
+  .gallery-next {
+    right: 8px;
+  }
+
+  .gallery-close {
+    width: 38px;
+    height: 38px;
+    font-size: 25px;
+  }
+
+  .gallery-counter {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 550px) {
+  .grid,
+  .vehicle-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .top {
+    padding: 8px 10px;
+    min-height: 58px;
+  }
+
   .search {
     max-width: none;
   }
-  
+
   .logo {
     font-size: 17px;
   }
-  
+
+  .hero {
+    margin: 12px 10px;
+    padding: 20px;
+  }
+
   .hero h1 {
     font-size: 34px;
   }
-  
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-photo img {
+    height: 240px;
+  }
+
+  .section-title {
+    margin-left: 5px;
+    margin-right: 5px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .section-title h2 {
+    font-size: 25px;
+  }
+
+  .contact {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+  }
+
   .contact form {
     grid-template-columns: 1fr;
   }
-  
+
   .contact textarea {
     grid-column: auto;
   }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .gallery-content {
+    width: 96vw;
+    padding: 10px;
+  }
+
+  .gallery-main-view {
+    min-height: 210px;
+  }
+
+  .gallery-main-view img {
+    min-height: 210px;
+    max-height: 60vh;
+  }
+
+  .gallery-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .gallery-prev {
+    left: 6px;
+  }
+
+  .gallery-next {
+    right: 6px;
+  }
+
+  .gallery-close {
+    width: 36px;
+    height: 36px;
+    top: 8px;
+    right: 8px;
+    font-size: 23px;
+  }
+
+  .float-wa {
+    right: 12px;
+    bottom: 12px;
+    padding: 12px 15px;
+  }
 }
+
+
+/* =========================================
+   EXTRA SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+  .logo {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding: 15px;
+  }
+
+  .hero h1 {
+    font-size: 29px;
+  }
+
+  .gallery-main-view {
+    min-height: 190px;
+  }
+
+  .gallery-main-view img {
+    min-height: 190px;
+  }
+
+  .gallery-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 21px;
+  }
+
+  .gallery-counter {
+    font-size: 13px;
+  }
+}
+```
